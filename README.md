@@ -1,5 +1,5 @@
 ####  solving git problems
-* 1.
+* 1
 warning: adding embedded git repository: basic_reactjs
 You've added another git repository inside your current repository.
 * solution
