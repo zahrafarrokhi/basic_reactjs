@@ -79,7 +79,7 @@ console.log('PRODUCTS', PRODUCTS)
 export default Products;
 ```
 
-#### props
+#### props => (App & Products)
 ```jsx
 import "./App.css";
 import PRODUCTS from "./PRODUCTS.json";
@@ -123,7 +123,7 @@ const Products = (props) => {
 export default Products;
 ```
 
-### props (ProductItem) => Products & ProductItem
+#### props (ProductItem) => Products & ProductItem
 
 ```jsx
 //Products
@@ -174,7 +174,7 @@ const ProductItem = ({ data }) => (
 );
 ```
 
-### props (button) => ProductItem & Button
+#### props (button) => ProductItem & Button
 ```jsx
 import "./ProductItem.css";
 import Button from "../Button/Button";
@@ -198,7 +198,7 @@ const Button = ({text}) => {
 }
  export default Button;
 ```
-### props (image) => ProductItem & Image
+#### props (image) => ProductItem & Image
 ```jsx
 import "./ProductItem.css";
 import Button from "../Button/Button";
@@ -228,7 +228,7 @@ const Image = ({imgSrc}) => {
  
 export default Image;
 ```
-### children(ProductItem & Button)
+#### children(ProductItem & Button)
 ```jsx
 //ProductItem
 import "./ProductItem.css";
