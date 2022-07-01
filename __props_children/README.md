@@ -77,3 +77,47 @@ const Products = () => {
 
 export default Products;
 ```
+
+#### props
+```jsx
+import "./App.css";
+import PRODUCTS from "./PRODUCTS.json";
+import Products from "../Products/Products";
+
+function App() {
+  return (
+    <div className="App">
+      {/* <Products /> */}
+      <Products data={PRODUCTS} />
+    </div>
+  );
+}
+
+export default App;
+//
+import ProductItem from "../ProductItem/ProductItem";
+
+const Products = (props) => {
+  // console.log('props', props)
+  const { data } = props;
+  return (
+    <div>
+      <ul>
+        {data.map((item) => (
+           <li>
+           <h3>{item.name}</h3>
+               <image
+            src={item.image}
+          style={{ width: "200px", height: "200px" }}
+           />
+             <span>Price:{item.price}</span>
+            </li>
+         
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Products;
+```
