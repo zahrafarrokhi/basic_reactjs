@@ -121,3 +121,53 @@ const Products = (props) => {
 
 export default Products;
 ```
+
+### props (ProductItem)
+```jsx
+//Products
+<ProductItem data={item } />
+//ProductItem
+const ProductItem = ({ data }) => (
+  <li>
+    <h3>{data.name}</h3>    
+    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <span>Price:{data.price}</span>   
+  </li>
+);
+```
+```jsx
+//Products
+import ProductItem from "../ProductItem/ProductItem";
+
+const Products = (props) => {
+  // console.log('props', props)
+  const { data } = props;
+  return (
+    <div>
+      <ul>
+        {data.map((item) => (
+        
+          // props
+          <ProductItem data={item } />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Products;
+
+//ProductItem
+import "./ProductItem.css";
+import Button from "../Button/Button";
+const ProductItem = ({ data }) => (
+  <li>
+    <h3>{data.name}</h3>    
+    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <span>Price:{data.price}</span>   
+  </li>
+);
+
+export default ProductItem;
+
+```
