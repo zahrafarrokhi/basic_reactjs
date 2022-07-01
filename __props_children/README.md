@@ -122,19 +122,8 @@ const Products = (props) => {
 export default Products;
 ```
 
-### props (ProductItem)
-```jsx
-//Products
-<ProductItem data={item } />
-//ProductItem
-const ProductItem = ({ data }) => (
-  <li>
-    <h3>{data.name}</h3>    
-    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
-    <span>Price:{data.price}</span>   
-  </li>
-);
-```
+### props (ProductItem) => Products & ProductItem
+
 ```jsx
 //Products
 import ProductItem from "../ProductItem/ProductItem";
@@ -171,3 +160,71 @@ const ProductItem = ({ data }) => (
 export default ProductItem;
 
 ```
+```jsx
+//Products
+<ProductItem data={item } />
+//ProductItem
+const ProductItem = ({ data }) => (
+  <li>
+    <h3>{data.name}</h3>    
+    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <span>Price:{data.price}</span>   
+  </li>
+);
+```
+
+### props (button) => ProductItem & Button
+```jsx
+import "./ProductItem.css";
+import Button from "../Button/Button";
+const ProductItem = ({ data }) => (
+  <li>
+    <h3>{data.name}</h3>    
+    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <span>Price:{data.price}</span>   
+    {/* props */}
+    <Button text='click here' />
+  </li>
+);
+
+export default ProductItem;
+
+// Button
+
+ import './Button.css';
+const Button = ({text}) => {
+     return (<button className='button'>{text }</button> );
+}
+ export default Button;
+```
+### props (image) => ProductItem & Image
+```jsx
+import "./ProductItem.css";
+import Button from "../Button/Button";
+const ProductItem = ({ data }) => (
+  <li>
+    <h3>{data.name}</h3>
+  
+    {/* props */}
+    <image imgSrc={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <span>Price:{data.price}</span>
+   
+    {/* props */}
+    <Button text='click here' /> 
+
+  
+  </li>
+);
+
+export default ProductItem;
+
+//Image
+const Image = ({imgSrc}) => {
+  return ( 
+    <img src={imgSrc } />
+   );
+}
+ 
+export default Image;
+```
+
