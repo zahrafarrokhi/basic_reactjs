@@ -54,6 +54,7 @@ export default App;
 // Products
 import PRODUCTS from "./PRODUCTS.json";
 const Products = () => {
+console.log('PRODUCTS', PRODUCTS)
  
   return (
     <div>
@@ -226,5 +227,34 @@ const Image = ({imgSrc}) => {
 }
  
 export default Image;
+```
+### children(ProductItem & Button)
+```jsx
+//ProductItem
+import "./ProductItem.css";
+import Button from "../Button/Button";
+const ProductItem = ({ data }) => (
+  <li>
+    <h3>{data.name}</h3>  
+    {/* props */}
+    <image imgSrc={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <span>Price:{data.price}</span>
+   
+    {/* children */}
+    <Button>Add to cart</Button>
+  </li>
+);
+
+export default ProductItem;
+
+//Button
+// children
+import './Button.css';
+const Button = ({children}) => {
+  return (<button className='button'>{children }</button> );
+}
+ 
+export default Button;
+
 ```
 
