@@ -61,13 +61,13 @@ console.log('PRODUCTS', PRODUCTS)
       <ul>
         {PRODUCTS.map((item) => (
            <li>
-           <h3>{item.name}</h3>
-               <image
-            src={item.image}
-          style={{ width: "200px", height: "200px" }}
-           />
-             <span>Price:{item.price}</span>
-            </li>
+            <h3>{item.name}</h3>
+            <img
+              src={item.image}
+              style={{ width: "200px", height: "200px" }}
+            />
+            <span>Price:{item.price}</span>
+          </li>
             
        
         ))}
@@ -107,7 +107,7 @@ const Products = (props) => {
         {data.map((item) => (
            <li>
            <h3>{item.name}</h3>
-               <image
+               <img
             src={item.image}
           style={{ width: "200px", height: "200px" }}
            />
@@ -153,7 +153,7 @@ import Button from "../Button/Button";
 const ProductItem = ({ data }) => (
   <li>
     <h3>{data.name}</h3>    
-    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <img src={data.image} style={{ width: "200px", height: "200px" }} /> 
     <span>Price:{data.price}</span>   
   </li>
 );
@@ -168,7 +168,7 @@ export default ProductItem;
 const ProductItem = ({ data }) => (
   <li>
     <h3>{data.name}</h3>    
-    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <img src={data.image} style={{ width: "200px", height: "200px" }} /> 
     <span>Price:{data.price}</span>   
   </li>
 );
@@ -181,7 +181,7 @@ import Button from "../Button/Button";
 const ProductItem = ({ data }) => (
   <li>
     <h3>{data.name}</h3>    
-    <image src={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <img src={data.image} style={{ width: "200px", height: "200px" }} /> 
     <span>Price:{data.price}</span>   
     {/* props */}
     <Button text='click here' />
@@ -198,16 +198,18 @@ const Button = ({text}) => {
 }
  export default Button;
 ```
+#### {...props}
 #### props (image) => ProductItem & Image
 ```jsx
 import "./ProductItem.css";
 import Button from "../Button/Button";
+import Image from "../Image/Image";
 const ProductItem = ({ data }) => (
   <li>
     <h3>{data.name}</h3>
   
     {/* props */}
-    <image imgSrc={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <Image imgSrc={data.image} customStyle={{ width: "200px", height: "200px" }} alt={data.name}/>  
     <span>Price:{data.price}</span>
    
     {/* props */}
@@ -220,9 +222,10 @@ const ProductItem = ({ data }) => (
 export default ProductItem;
 
 //Image
-const Image = ({imgSrc}) => {
+const Image = (props) => {
+  const {imgSrc,customStyle} = props
   return ( 
-    <img src={imgSrc } />
+    <img {...props} src={imgSrc } style={customStyle}/>
    );
 }
  
@@ -233,11 +236,12 @@ export default Image;
 //ProductItem
 import "./ProductItem.css";
 import Button from "../Button/Button";
+import Image from "../Image/Image";
 const ProductItem = ({ data }) => (
   <li>
     <h3>{data.name}</h3>  
     {/* props */}
-    <image imgSrc={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <Image imgSrc={data.image} customStyle={{ width: "200px", height: "200px" }} alt={data.name}/>  
     <span>Price:{data.price}</span>
    
     {/* children */}
