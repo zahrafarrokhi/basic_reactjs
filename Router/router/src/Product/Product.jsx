@@ -1,9 +1,12 @@
-import "./ProductItem.css";
+import "./Product.css";
+import { useParams } from "react-router-dom";
 import Button from "../Button/Button";
-import Image from '../Image/Image'
-import { Link } from "react-router-dom";
-const ProductItem = ({ data }) => (
-  <Link to={`/product/${data.id}`}>
+import Image from '../Image/Image';
+import ProductList from '../App/PRODUCTS.json'
+const ProductId = () => {
+  const {pid} = useParams();
+  const data = ProductList.filter(item => item.id === pid)[0]
+  return (
   <li className="ProductItem visible">
     <h3>{data.name}</h3>
   
@@ -17,7 +20,7 @@ const ProductItem = ({ data }) => (
     {/* children */}
     <Button>Add to cart</Button>
   </li>
-  </Link>
 );
+  }
 
-export default ProductItem;
+export default ProductId;
