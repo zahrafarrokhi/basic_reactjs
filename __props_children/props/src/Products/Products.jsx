@@ -1,4 +1,4 @@
-import './Products.css'
+import "./Products.css";
 import ProductItem from "../ProductItem/ProductItem";
 const Products = (props) => {
   // console.log('props', props)
@@ -16,7 +16,7 @@ const Products = (props) => {
           //   <span>Price:{item.price}</span>
           // </li>
           // props
-          <ProductItem data={item } />
+          <ProductItem data={item} />
         ))}
       </ul>
     </div>
