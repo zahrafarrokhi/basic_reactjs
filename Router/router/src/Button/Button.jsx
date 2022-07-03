@@ -8,8 +8,8 @@
 
 // children
 import './Button.css';
-const Button = ({children}) => {
-  return (<button className='button'>{children }</button> );
+const Button = ({children,handleClick = () => {}}) => {
+  return (<button onClick={ handleClick} className='button'>{children }</button> );
 }
  
 export default Button;

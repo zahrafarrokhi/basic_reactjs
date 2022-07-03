@@ -62,3 +62,40 @@ You can use useParams to access url paramteres.
 
 
 
+### Event
+
+```jsx
+//contact.jsx
+
+ const handleChangeInputSubject = (event) => {
+    console.log(event.target.value);
+  };
+
+ const handleSubmit = () => {
+    console.log("submit");
+  };
+
+<div className="formControl">
+        <input
+          type="text"
+          placeholder="subject"
+          // onChange={(event)=>(console.log(event))}
+          // onChange={(event)=>(console.log(event.target.value))}
+          onChange={handleChangeInputSubject}
+        />
+</div>
+ <div className="formControl">
+        <Button handleClick={handleSubmit}>Submit</Button>
+ </div>
+
+```
+#### props(event with default)
+```jsx
+
+import './Button.css';
+const Button = ({children,handleClick = () => {}}) => {
+  return (<button onClick={ handleClick} className='button'>{children }</button> );
+}
+ 
+export default Button;
+```
