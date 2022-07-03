@@ -31,3 +31,8 @@ git commit -m "add basic"
 git push -u origin main
 
 ```
+
+* port 3000 is already in use.
+```jsx
+sudo pkill node
+```
