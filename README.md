@@ -23,6 +23,11 @@ fatal: Branch rename failed
 * solution
 ```jsx
 git checkout -b main
+or 
+git init
+git add -A
+git commit -m "first commit"
+git branch -M main
 ```
 ```jsx
 git remote add origin git@github.com:zahrafarrokhi/basic_reactjs.git
