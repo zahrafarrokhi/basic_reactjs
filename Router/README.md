@@ -148,3 +148,53 @@ export default Contact;
 
 
 ```
+
+### validation
+
+```jsx
+1.
+//src/utils/validation.js
+const validateEmail = (email) => {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+};
+
+const validateSubject = (subject) => subject.length > 8;
+
+export { validateEmail, validateSubject };
+
+```
+
+```jsx
+2.
+const [errors,setErrors] = useState({});
+
+const handleChangeInputSubject = (event) => {
+  if (validateSubject(event.target.value)) {
+    setSubject(event.target.value);
+    setErrors({
+      ...errors,
+      subject: null,
+    });
+  } else {
+    setErrors({
+      ...errors,
+      subject: "Subject must be more than 8 characters",
+    });
+  }
+};
+
+```
+
+```jsx
+3.
+ <div className="formControl">
+    <input
+          type="text"
+          placeholder="subject"
+          onChange={handleChangeInputSubject}
+        />
+    {errors.subject && <span>{errors.subject}</span>}
+ </div>
+
+```

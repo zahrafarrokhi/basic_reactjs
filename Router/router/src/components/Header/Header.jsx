@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import NavBar from './../NavBar/Navbar'
+import NavBar from '../NavBar/Navbar'
 import { useLocation } from 'react-router-dom'
 
 

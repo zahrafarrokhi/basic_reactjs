@@ -1,7 +1,7 @@
 import "./ProductItem.css";
-import Button from "../Button/Button";
 import Image from '../Image/Image'
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 const ProductItem = ({ data }) => (
   <Link to={`/product/${data.id}`}>
   <li className="ProductItem visible">
