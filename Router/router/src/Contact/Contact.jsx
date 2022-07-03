@@ -1,19 +1,32 @@
+import React, { useState } from 'react'
 import Button from "../Button/Button";
 
 const Contact = () => {
+  const [subject, setSubject] = useState('');
+  const [email, setEmail] = useState('');
+  const [description, setDescription] = useState('');
+
   const handleChangeInputSubject = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    setSubject(event.target.value);
   };
+  
+  console.log("subject",subject)
 
   const handleChangeInputEmail = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    setEmail(event.target.value);
   };
 
   const handleChangeTextArea = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    setDescription(event.target.value);
   };
   const handleSubmit = () => {
-    console.log("submit");
+    // console.log("submit");
+    console.log("subject", subject);
+    console.log("email", email);
+    console.log("description", description);
   };
 
   return (

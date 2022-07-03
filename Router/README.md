@@ -99,3 +99,52 @@ const Button = ({children,handleClick = () => {}}) => {
  
 export default Button;
 ```
+
+
+### state
+
+```jsx
+1.import React, { useState } from 'react'
+2.const [subject, setSubject] = useState('');
+//setSubject
+3.
+ const handleChangeInputSubject = (event) => {
+     setSubject(event.target.value);
+  };
+ <input
+    type="text"
+    placeholder="subject"         
+    onChange={handleChangeInputSubject}
+  />
+```
+```jsx
+
+import React, { useState } from 'react'
+import Button from "../Button/Button";
+
+const Contact = () => {
+  const [subject, setSubject] = useState('');
+  
+  const handleChangeInputSubject = (event) => {
+     setSubject(event.target.value);
+  };
+  
+  console.log("subject",subject)
+
+  return (
+    <div className="Contact">
+      <div className="formControl">
+        <input
+          type="text"
+          placeholder="subject"         
+          onChange={handleChangeInputSubject}
+        />
+      </div>   
+    </div>
+  );
+};
+
+export default Contact;
+
+
+```
