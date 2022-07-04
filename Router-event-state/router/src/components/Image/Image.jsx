@@ -1,6 +1,7 @@
-const Image = ({imgSrc,style}) => {
+const Image = (props) => {
+  const { imgSrc, style } = props;
   return ( 
-    <img src={imgSrc } style={style}/>
+    <img {...props} src={imgSrc } style={style}/>
    );
 }
  

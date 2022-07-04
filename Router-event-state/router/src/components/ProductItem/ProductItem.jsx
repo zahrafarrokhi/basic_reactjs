@@ -8,7 +8,7 @@ const ProductItem = ({ data }) => (
     <h3>{data.name}</h3>
   
     {/* props */}
-    <Image imgSrc={data.image} style={{ width: "200px", height: "200px" }} /> 
+    <Image imgSrc={data.image} style={{ width: "200px", height: "200px" }} alt="productpic"/> 
     <span>Price:{data.price}</span>
    
     {/* props */}
