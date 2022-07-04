@@ -60,8 +60,6 @@ function App() {
 
 You can use useParams to access url paramteres.
 
-
-
 ### Event
 
 ```jsx
@@ -197,4 +195,72 @@ const handleChangeInputSubject = (event) => {
     {errors.subject && <span>{errors.subject}</span>}
  </div>
 
+```
+
+### class component
+```jsx
+// 1.
+//Blog
+class Blog extends React.Component {
+  render() {
+    return (
+      <>
+        <h1>Blog</h1>
+        <button onClick={() => console.log("click!")}>click!</button>
+      </>
+    );
+  }
+}
+
+export default Blog;
+
+```
+##### this 
+```jsx
+// this
+class Blog extends React.Component {
+  handleclick=()=>{
+    console.log("click!")
+  }
+  render() {
+    return (
+      <>
+        <h1>Blog</h1>
+        {/* <button onClick={() => console.log("click!")}>click!</button> */}
+        <button onClick={this.handleclick}>click!</button>
+      </>
+    );
+  }
+}
+
+export default Blog;
+```
+
+###### state
+```jsx
+class Blog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false,
+    };
+  }
+  handleclick = () => {
+    // console.log("click!")
+    this.setState = ({
+      clicked: true,
+    });
+  };
+  render() {
+    return (
+      <>
+        {this.state.clicked ? "clicked" : "not clicked"}
+        <h1>Blog</h1>
+        {/* <button onClick={() => console.log("click!")}>click!</button> */}
+        <button onClick={this.handleclick}>click!</button>
+      </>
+    );
+  }
+}
+export default Blog;
 ```
