@@ -32,7 +32,7 @@ class Blog extends React.Component {
   render() {
     return (
       <>
-        {this.state.clicked?"t":"not"}
+        {this.state.clicked?"clicked":"not clicked"}
         <h1>Blog</h1>
         {/* <button onClick={() => console.log("click!")}>click!</button> */}
         <button onClick={this.handleclick}>click!</button>
