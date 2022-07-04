@@ -31,9 +31,15 @@ const Contact = () => {
 
   const submit = async () => {
     try {
-      const response =  await axios.post(
-        'https://mysite-dev2020.herokuapp.com/contacts/', 
-        {subject, description, email, },)
+      // herokuapp
+      // const response =  await axios.post(
+      //   'https://mysite-dev2020.herokuapp.com/contacts/',
+      //   { subject, description, email, })
+
+      //https://fakestoreapi.com/docs
+        const response =  await axios.post(
+          'https://fakestoreapi.com/products', 
+          {subject, description, email, },)
       setShowThankyou(true)
     } catch(e) {
       setErrors({...errors, server: e.response.data})
@@ -60,6 +66,7 @@ const Contact = () => {
       <button className="submit" onClick={submit}>Submit</button>
       </div>
       {showThankyou && (<div className="thankyou">Oh look what you have done!!!</div>)}
+      {/* ? */}
       {errors.server && <div className="error">
         {Object.entries(errors.server).map((key) => {
           console.log(key, key[1], key[0])

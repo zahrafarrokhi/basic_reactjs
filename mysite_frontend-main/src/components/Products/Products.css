@@ -4,12 +4,13 @@
   display: flex;
   flex-wrap: 1;
   flex-direction: row;
+  /* overflow-x: hidden; */
 }
 
 .card {
   width: 15em;
   height: 20em;
-  margin: 5em;
+  margin: 1em;
   border-radius: 30px;
   border: 2px solid #ECF0F1;
 
@@ -25,7 +26,7 @@
   border-top-right-radius: 30px;
 }
 
-.card h1 {
+ .card h1 {
   text-align: left;
   font-size: 25px;
   font-weight: bold;
