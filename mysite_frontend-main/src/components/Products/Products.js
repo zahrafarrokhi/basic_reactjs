@@ -32,7 +32,7 @@ const Products = () => {
   return (
 <div className="container">
       <div className="row ">
-          <div class="col-6 col-md-4">
+          <div class="">
         {/*  herokuapp */}
         {/* <div className="products">
         {data.map((item) => (
@@ -48,7 +48,7 @@ const Products = () => {
 
         <div className="products">
           {data.map((item) => (
-            <div className="card" key={item.id}>
+            <div className="card col-6 col-md-3 m-2" key={item.id}>
               <img src={item.image} />
               <h4>{item.title} </h4>
               <h2>{item.price}</h2>
