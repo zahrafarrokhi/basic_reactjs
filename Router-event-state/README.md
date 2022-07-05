@@ -238,29 +238,206 @@ export default Blog;
 
 ###### state
 ```jsx
+import React from "react";
+import "./Blog.css";
+
 class Blog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       clicked: false,
+      
     };
   }
   handleclick = () => {
-    // console.log("click!")
-    this.setState = ({
+  //  console.log("click!")
+    this.setState({
       clicked: true,
+     
     });
+   
   };
+
   render() {
     return (
       <>
-        {this.state.clicked ? "clicked" : "not clicked"}
+        {this.state.clicked?"clicked":"not clicked"}
         <h1>Blog</h1>
+        <p>Clicked number:{clicked}</p>
         {/* <button onClick={() => console.log("click!")}>click!</button> */}
         <button onClick={this.handleclick}>click!</button>
       </>
     );
   }
 }
+
 export default Blog;
+
+ 
+```
+##### clicked +1,
+```jsx
+class Blog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: 0,
+    };
+  }
+  component D
+  handleclick = () => {
+  //  console.log("click!")
+    this.setState({
+     clicked : this.state.clicked +1,
+    });
+   
+  };
+
+  render() {
+    const {clicked} = this.state  
+    return (
+      <>
+          
+      <h1>Blog</h1>
+          {/* <button onClick={() => console.log("click!")}>click!</button> */}
+      <p>
+          Clicked number :{clicked}
+      </p>
+      <button onClick={this.handleclick}>click!</button>
+      
+      </>
+    );
+  }
+}
+
+export default Blog;
+
+```
+#### Lifecycle
+##### DidMount
+```jsx
+import React from "react";
+import "./Blog.css";
+
+class Blog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: 0,
+      didMount: false,
+    };
+  }
+  componentDidMount() {
+    // this.setState({
+    //   didMount:true,
+    // });
+    setTimeout(() => {
+      this.setState({
+        didMount: true,
+      });
+    this.handleclick();
+    }, 1000);
+  }
+  handleclick = () => {
+    //  console.log("click!")
+    this.setState({
+     
+      clicked: this.state.clicked + 1,
+    });
+  };
+
+  render() {
+    const { clicked, didMount } = this.state;
+    return (
+      <>
+        <h1>Blog</h1>
+        <p>Clicked number :{clicked}</p>
+        <button onClick={this.handleclick}>click!</button>
+        <h1>Component Did mount </h1>
+        <p>it is mounted?{didMount ? "YES" : "NO"}</p>
+      </>
+    );
+  }
+}
+
+export default Blog;
+
+```
+
+#### componentDidUpdate
+
+```jsx
+import React from "react";
+
+import "./Blog.css";
+
+
+class Blog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // clicked: false,
+      clicked: 0,
+      didMount: false,
+      updateNumber:0,
+    };
+  }
+  componentDidMount() {
+    // this.setState({
+    //   didMount:true,
+    // });
+    setTimeout(() => {
+      this.setState({
+        didMount: true,
+      });
+      //handleclick
+      this.handleclick();
+    }, 1000);
+  }
+  componentDidUpdate(prevProps,prevState) {
+    const { updateNumber } = this.state;
+    if (updateNumber===0) {
+      this.setState({
+        updateNumber: this.state.updateNumber + 1,
+      });
+    }
+  }
+  handleclick = () => {
+    //  console.log("click!")
+    this.setState({
+      // clicked: true,
+      clicked: this.state.clicked + 1,
+    });
+  };
+
+  render() {
+    const { clicked, didMount,updateNumber } = this.state;
+    return (
+      <>
+        {/* {this.state.clicked?"clicked":"not clicked"} */}
+        <h1>Blog</h1>
+        {/* <button onClick={() => console.log("click!")}>click!</button> */}
+        <p>Clicked number :{clicked}</p>
+        <button onClick={this.handleclick}>click!</button>
+        <h1>Component Did mount </h1>
+        <p>it is mounted?{didMount ? "YES" : "NO"}</p>
+        {/* Did Update */}
+        <h1>Component Did Update </h1>
+        <p>how many times updated?{updateNumber}</p>
+      </>
+    );
+  }
+}
+
+export default Blog;
+
+
+```
+
+##### componentWillUnmount
+```jsx
+componentWillUnmount() {
+    console.log('unmount')
+  }
+
 ```
