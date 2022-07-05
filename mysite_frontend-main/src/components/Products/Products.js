@@ -15,14 +15,15 @@ const Products = () => {
 
   // https://fakestoreapi.com/docs
   const getList = async () => {
-     // let res = fetch('https://fakestoreapi.com/products?limit=5')
-      
-    //   // .then(res => res.json())
-    //   setData(res);
-    try {
-      let response = await axios.get("https://fakestoreapi.com/products/");
-      setData(response.data);
-    } catch (e) {}
+      fetch('https://fakestoreapi.com/products?limit=5')
+      .then(res => {
+        // console.log(res, res.json())
+        res.json().then((data) => {
+          console.log("Data", data)
+          setData(data)
+        }).catch((e) => console.log(e));
+      }).catch((e) => console.log(e));
+
    
   };
   useEffect(() => {
@@ -32,11 +33,11 @@ const Products = () => {
   return (
 <div className="container">
       <div className="row ">
-          <div class="">
+          <div className="">
         {/*  herokuapp */}
         {/* <div className="products">
         {data.map((item) => (
-          <div className="card" key={item.id}>
+          <div className="card col-6 col-md-3 m-2" key={item.id}>
             <img src="https://i.pravatar.cc/300" />
             <h1>{item.name} </h1>
             <h2>{item.price}</h2>
