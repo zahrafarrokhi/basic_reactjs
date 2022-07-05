@@ -1,75 +1,45 @@
-import React from "react";
-// import Button from "../Button/Button";
+import React, { useState } from "react";
+import Button from "../Button/Button";
+// import Image from "../Image/Image";
+import POSTS from "./POSTS.json";
 import "./Blog.css";
 
-// const Blog = () => {
+const Blog = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-//   return (
-//     <div className="Blog">
-
-//    <ul>blog</ul>
-//     </div>
-//   );
-// };
-//
-
-class Blog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // clicked: false,
-      clicked: 0,
-      didMount: false,
-      updateNumber:0,
-    };
-  }
-  componentDidMount() {
-    // this.setState({
-    //   didMount:true,
-    // });
+  const handleLoadPosts = () => {
+    setLoading(false);
     setTimeout(() => {
-      this.setState({
-        didMount: true,
-      });
-      //handleclick
-      this.handleclick();
+      setPosts(POSTS);
+      setLoading(true);
     }, 1000);
-  }
-  componentDidUpdate(prevProps,prevState) {
-    const { updateNumber } = this.state;
-    if (updateNumber===0) {
-      this.setState({
-        updateNumber: this.state.updateNumber + 1,
-      });
-    }
-  }
-  componentWillUnmount() {
-    console.log('unmount')
-  }
-  handleclick = () => {
-    //  console.log("click!")
-    this.setState({
-      // clicked: true,
-      clicked: this.state.clicked + 1,
-    });
   };
+  return (
+    <div className="Blog">
+      <Button handleClick={handleLoadPosts}>
+        {loading ? "loading" : "Load POSTS into State"}
+      </Button>
+      {posts.length === 0 && <div>No Posts</div>}
 
-  render() {
-    const { clicked, didMount,updateNumber } = this.state;
-    return (
-      <>
-        {/* {this.state.clicked?"clicked":"not clicked"} */}
-        <h1>Blog</h1>
-        {/* <button onClick={() => console.log("click!")}>click!</button> */}
-        <p>Clicked number :{clicked}</p>
-        <button onClick={this.handleclick}>click!</button>
-        <h1>Component Did mount </h1>
-        <p>it is mounted?{didMount ? "YES" : "NO"}</p>
-        <h1>Component Did Update </h1>
-        <p>how many times updated?{updateNumber}</p>
-      </>
-    );
-  }
-}
+      {posts.length > 0 && (
+        <ul>
+          {POSTS.map((post) => (
+            <li>
+              <h3>{post.title}</h3>
+              <img src={post.image} style={{ width: "50", height: "50" }} />
+              {/* <Image
+                imgSrc={post.image}
+                customStyle={{ width: "100", height: "100" }}
+                alt={post.name}
+              /> */}
+              <p>{post.content}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
 
 export default Blog;
