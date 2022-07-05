@@ -22,7 +22,7 @@ class Blog extends React.Component {
   }
   handleclick = () => {
   //  console.log("click!")
-    this.setState = ({
+    this.setState({
       clicked: true,
      
     });
