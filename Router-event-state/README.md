@@ -215,7 +215,7 @@ class Blog extends React.Component {
 export default Blog;
 
 ```
-##### this 
+##### this(class)
 ```jsx
 // this
 class Blog extends React.Component {
@@ -236,7 +236,7 @@ class Blog extends React.Component {
 export default Blog;
 ```
 
-###### state
+###### class state
 ```jsx
 import React from "react";
 import "./Blog.css";
