@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Button from "../Button/Button";
 // import Image from "../Image/Image";
 import POSTS from "./POSTS.json";
@@ -7,14 +7,26 @@ import "./Blog.css";
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const handleLoadPosts = () => {
     setLoading(false);
+    setLoaded(true)
     setTimeout(() => {
-      setPosts(POSTS);
+      setPosts(POSTS);      
       setLoading(true);
     }, 1000);
   };
+  //didMount
+  useEffect(() => {
+    console.log('useEffect');
+    handleLoadPosts();
+  }, [])
+  //didUpdate
+  useEffect(() => {
+    console.log('loaded changed');
+    
+  },[loaded])
   return (
     <div className="Blog">
       <Button handleClick={handleLoadPosts}>
