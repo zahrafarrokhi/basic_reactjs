@@ -61,7 +61,7 @@ function App() {
 You can use useParams to access url paramteres.
 
 
-#### data & component
+#### data & component(get data from JSON)
 
 ```jsx
 //components/Blog/blog.js
@@ -142,5 +142,31 @@ export default Blog;
     console.log('loaded changed');
     
   },[loaded])
+
+  
 ```
+
+#### get data from api
+
+
+```jsx
+//componets/Api/Api.jsx
+
+ const loadPosts = async () => {
+    setLoading(true);
+    const res = await fetch('https://fakestoreapi.com/products/')
+    const posts = await res.json()
+    setPosts(posts)
+    setLoading(false);
+  };
+  
+  useEffect(() => {    
+    loadPosts();
+  }, [])
+
+  //loading
+   {loading && <div>loading</div>}
+```
+
+
 

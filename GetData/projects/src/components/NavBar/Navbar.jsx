@@ -17,7 +17,12 @@ const Navbar = () => (
     </li>
     <li>
       <Link to="blog">
-        <button>Blog</button>
+        <button>Blog json</button>
+      </Link>
+    </li> 
+    <li>
+      <Link to="api">
+        <button>api</button>
       </Link>
     </li> 
     <li>

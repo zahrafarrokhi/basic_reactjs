@@ -10,6 +10,7 @@ import About from "./components/About/About";
 import Blog from "./components/Blog/Blog";
 import Contact from "./components/Contact/Contact";
 import App from "./components/App/App";
+import Api from "./components/Api/Api";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +20,7 @@ root.render(
         <Route index element={<Products data={PRODUCTS} />} />
         <Route path="about" element={<About />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="api" element={<Api />} />
         <Route path="product" >
           <Route path=":pid" element={<Product/>}/>
         </Route>
