@@ -18,13 +18,13 @@ const Blog = () => {
   return (
     <div className="Blog">
       <Button handleClick={handleLoadPosts}>
-        {loading ? "loading" : "Load POSTS into State"}
+        {loading ? "loading" : "Load POSTS "}
       </Button>
       {posts.length === 0 && <div>No Posts</div>}
 
       {posts.length > 0 && (
         <ul>
-          {POSTS.map((post) => (
+          {posts.map((post) => (
             <li>
               <h3>{post.title}</h3>
               <img src={post.image} style={{ width: "50", height: "50" }} />
