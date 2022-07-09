@@ -5,9 +5,16 @@
   padding: 0px;
   display: flex;
 }
+.Navbar li {
+  border: none;
+  font-size: 20px;
+  color: #2c3e50;
+  cursor: pointer;
+  margin: 1px;
+}
 .Navbar li button {
   border: none;
-  font-size: 10px;
+  font-size: 20px;
   color: #2c3e50;
   cursor: pointer;
 }
