@@ -167,6 +167,108 @@ export default Blog;
   //loading
    {loading && <div>loading</div>}
 ```
+###### useCallback
+###### pagination
+```jsx
+//Blog.js
+//slice
+ {posts.slice(0,3).map((post) => (
+          
+  ))}
+//1
+  <div>
+        <ul>
+          <li>
+            <Button>1</Button>
+          </li>
+        </ul>
+ </div>
+//2
+ const calculatePageCounts = () => {
+    if (posts.length % 3 > 0) {
+      return parseInt(posts.length / 3 + 1);
+    }
+    return parseInt(posts.length / 3);
+  }
+//3
+ useEffect(() => {
+    calculatePageCounts();
+  },[posts])
+//4
+const [pageCounts,setPageCounts] = useState(0)
+//5
+ useEffect(() => {
+    
+    setPageCounts(calculatePageCounts());
+  },[posts])
+//6
+console.log('pageCounts',pageCounts)
+
+//7
+  <ul className="Pagination">
+    {new Array(pageCounts).fill(0).map((item, index) => (
+      <li className="pg">
+        <Button>{index + 1}</Button>
+      </li>
+    ))}
+</ul>
+
+//8
+const [activePageNumber,setActivePageNumber] = useState(1)
+
+//9 {activePageNumber === index + 1 ? "active" : ""}
+<ul className="Pagination">
+          {new Array(pageCounts).fill(0).map((item, index) => (
+            <li className={activePageNumber === index + 1 ? "active" : ""}>
+              <Button >
+                {index + 1}
+              </Button>
+            </li>
+          ))}
+        </ul>
+
+//10 handleClick
+ {new Array(pageCounts).fill(0).map((item, index) => (
+            <li className={activePageNumber === index + 1 ? "active" : ""}>
+              <Button handleClick={() => handleClickOnPages(index+1)}>
+                {index + 1}
+              </Button>
+            </li>
+ ))}
+ //11
+   const handleClickOnPages = (pageNumber) => {
+    setActivePageNumber(pageNumber);
+  }
+//12 
+ {posts.slice(3 * (activePageNumber-1), 3 * activePageNumber).map((post) => (
+       
+))}
+
+
+```
+
+##### pagination(useCallback)
+```jsx
+import React, { useState, useEffect, useCallback } from "react";
+//calculatePageCounts
+const calculatePageCounts = useCallback(() => {
+    if (posts.length % 3 > 0) {
+      return parseInt(posts.length / 3 + 1);
+    }
+    return parseInt(posts.length / 3);
+  
+  }, [posts]);
+//
+  useEffect(() => {
+    setPageCounts(calculatePageCounts());
+  },[posts, calculatePageCounts])
+// handleClickOnPages
+const handleClickOnPages = useCallback((pageNumber) => {
+    setActivePageNumber(pageNumber);
+  },[]);
+
+
+```
 
 
 
