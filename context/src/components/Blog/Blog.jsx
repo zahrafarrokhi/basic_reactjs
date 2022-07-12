@@ -10,8 +10,7 @@ const Blog = () => {
   const [loaded, setLoaded] = useState(false);
   const [pageCounts, setPageCounts] = useState(0);
   const [activePageNumber,setActivePageNumber] = useState(1)
-  console.log(posts,"basic")
-  
+
   const handleLoadPosts = () => {
     setLoading(false);
     setLoaded(true);
@@ -20,16 +19,14 @@ const Blog = () => {
       setLoading(true);
     }, 1000);
   };
- 
-
   //didMount
   useEffect(() => {
-    // console.log("useEffect");
+    console.log("useEffect");
     handleLoadPosts();
   }, []);
   //didUpdate
   useEffect(() => {
-    // console.log("loaded changed");
+    console.log("loaded changed");
   }, [loaded]);
 
   //1
