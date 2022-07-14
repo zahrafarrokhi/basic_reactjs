@@ -66,6 +66,7 @@ You can use useParams to access url paramteres.
 //contact.jsx
 
  const handleChangeInputSubject = (event) => {
+    //console.log("event",event);
     console.log(event.target.value);
   };
 
