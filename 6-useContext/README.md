@@ -178,3 +178,85 @@ const Footer = () => {
 export default Footer
 
 ```
+
+#### add image to projects
+* 1.
+```jsx
+//src/configs/general.js 
+const PROJECT_URL = 'http://localhost:3000'
+
+export {
+    PROJECT_URL
+}
+//create puplic/assets/img
+//src/components/ProductItem/ProductItem.js
+import { PROJECT_URL } from '../../configs/general'
+<Image imgSrc={`${PROJECT_URL}/assets/img/${data.image}`} />
+```
+
+* 2.
+```jsx
+//src/components/About/About.jsx
+import React from 'react';
+import profileImage from './profile.jpg';
+
+const About = () => (
+  <div className="about">
+    About me
+    <img
+      alt="About Me"
+      style={{
+        width: '100%',
+      }}
+      src={profileImage}
+    />
+  </div>
+);
+
+export default About;
+```
+#### Eslint
+```jsx
+npm i -g eslint
+eslint ---init
+how would you like to use Eslint? to check syntax,find proplems,any code style
+what type of module...? javascript modules
+which framework does your project use? React
+where does your code run? Browser
+how would you like to define a style for your project? Airbnb
+what format do you want to your config? json
+would you like to install theme now with npm ? yes
+
+// instal on devdependies
+eslintrc.json
+rightclick/format document with eslint
+//or auto with ctrl+save
+Eslint install on extension vscode
+src/.vscode/setting.json
+{
+  "editor.CodeActionsOnSave":{
+    "source.fixAll":true,
+     "source.fixAll.eslint":true,
+
+  }
+}
+```
+
+#### git
+
+
+### sass
+
+```jsx
+npm i node-sass
+```
+
+#### adding bootstrap react
+
+```jsx
+
+npm install --save bootstrap
+// add on App.js
+```
+
+### mui

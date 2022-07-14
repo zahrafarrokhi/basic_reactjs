@@ -1,11 +1,11 @@
 .ProductItem {
-  opacity: 0;
+  /* opacity: 0; */
   transition-duration: 1s;
   transition-delay: 0s;
 }
-.ProductItem.visible {
+/* .ProductItem.visible {
   opacity: 1;
-}
+} */
 .ProductItem button {
   width: 100%;
   border: 1px solid #27ae60;

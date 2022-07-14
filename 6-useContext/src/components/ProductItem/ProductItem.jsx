@@ -16,13 +16,15 @@ const ProductItem = ({ data }) => {
       </Link>
       <Image
         imgSrc={data.image}
-        style={{ width: "200px", height: "200px" }}
+        customStyle={{ width: "150px", height: "100px" }}
         alt="productpic"
       />
-
+      <br/>
       <span>Price: {data.price}</span>
       <Button
         style={{
+          padding: "10px",
+          width:"100px",
           color: themeValues.theme.color,
           borderColor: themeValues.theme.color,
           display: "flex",
