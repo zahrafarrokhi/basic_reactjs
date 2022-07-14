@@ -11,9 +11,18 @@ import Blog from "./components/Blog/Blog";
 import Contact from "./components/Contact/Contact";
 import App from "./components/App/App";
 import Api from "./components/Api/Api";
+//theme
+import ThemeContext from "./contexts/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <ThemeContext.Provider
+  value={{
+     test:"hello"
+    // theme: themeConfig[activeTheme],
+    // setActiveTheme,
+  }}
+>
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
@@ -27,5 +36,6 @@ root.render(
         <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
-  </BrowserRouter>
+    </BrowserRouter>
+    </ThemeContext.Provider>
 );

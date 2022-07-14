@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect,useRef} from 'react'
 import Button from "../Button/Button";
 import { validateEmail, validateSubject } from '../../utils/validation'
 
@@ -6,7 +6,8 @@ const Contact = () => {
   const [subject, setSubject] = useState('');
   const [email, setEmail] = useState('');
   const [description, setDescription] = useState('');
-  const [errors,setErrors] = useState({});
+  const [errors, setErrors] = useState({});
+  const inputSubjectRef = useRef(null)
 
   // const handleChangeInputSubject = (event) => {
   //   // console.log(event.target.value);
@@ -72,10 +73,19 @@ const handleSubmit = () => {
   console.log("description", description);
 };
 
+  useEffect(() => {
+  console.log("inputSubjectRef",inputSubjectRef)
+  //inputSubjectRef
+    //current: input
+    inputSubjectRef.current.focus();
+    // document.getElementById("sample").focus();
+}, [])
   return (
     <div className="Contact">
       <div className="formControl">
         <input
+          id ="sample"
+          ref={inputSubjectRef}
           type="text"
           placeholder="subject"
           // onChange={(event)=>(console.log(event))}
