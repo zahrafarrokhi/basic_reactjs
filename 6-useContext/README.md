@@ -82,3 +82,99 @@ function App() {
 
 ```
 `ProductItem`
+```jsx
+import React, { useContext } from "react";
+
+import ThemeContext from "../../contexts/ThemeContext";
+
+const ProductItem = ({ data }) => {
+  const themeValues = useContext(ThemeContext);
+  console.log(themeValues);
+
+  return (
+    <li className="ProductItem">
+      <Link to={`/product/${data.id}`}>
+        <h3>{data.name}</h3>
+      </Link>
+      <Image
+        imgSrc={data.image}
+        style={{ width: "200px", height: "200px" }}
+        alt="productpic"
+      />
+
+      <span>Price: {data.price}</span>
+      <Button
+        
+      >
+        Add to cart
+      </Button>
+    </li>
+  );
+};
+
+export default ProductItem;
+
+```
+`ProductItem`
+```jsx
+//btn style
+ <Button
+        style={{
+          color: themeValues.theme.color,
+          borderColor: themeValues.theme.color,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Add to cart
+      </Button>
+
+```
+`Button.jsx`
+```jsx
+//...props
+import React from 'react';
+
+import './Button.css';
+
+const Button = ({
+  children, handleClick = () => {}, ...props
+}) => (
+  <button onClick={handleClick} className="button" {...props}>
+    {children}
+  </button>
+);
+
+
+
+export default Button;
+
+```
+
+`footer.js`
+```jsx
+import React, { useContext } from "react";
+import './Footer.css'
+import ThemeContext from "../../contexts/ThemeContext";
+
+const Footer = () => {
+  const themeValues = useContext(ThemeContext);
+  return (
+    <div className="Footer">
+      <h5>Developed By Ehsan</h5>
+      <div>
+        <button onClick={() => themeValues.setActiveTheme('green')} className="green">
+          Green
+        </button>
+        <button onClick={() => themeValues.setActiveTheme('blue')} className="blue">
+          Blue
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Footer
+
+```
