@@ -199,6 +199,43 @@ const Submit = () => {
   }
 ```
 ### DELETE TASK
+###### example
+```jsx
+console.log()
+const tasks = [ {
+      id:1,
+      title: "default title",
+      status:true
+      },
+    {
+        id:2,
+        title: "default title 2",
+        status:false
+      },]
+//
+tasks.findIndex((task) => task.id === 2)
+//out=>1
+//
+let newTaskList = tasks
+//
+newTaskList
+//out=>(2) [{…}, {…}]
+//delete
+delete newTaskList[1];
+//out=> true
+//
+newTaskList
+out=>(2) [{…}, empty]
+//delete empty from array
+newTaskList.filter(item=>item)
+//out=>[{…}]
+// 0: {id: 1, title: 'default title', status: true}
+// length: 1
+// [[Prototype]]: Array(0)
+
+
+```
+##### deleteTask
 ```jsx
 //TodoApp.jsx
  //deleteTask
@@ -218,6 +255,32 @@ const { taskitem ,deleteTask} = props;
 <button onClick={()=>{deleteTask(taskitem.id)}}>
           <FaTrashAlt />
  </button>
+```
+#### fix delete
+### filter points
+```jsx
+//filter point
+let arr = [1,2,3]
+delete arr[arr.findIndex(x=>x==2)]
+arr
+//out=>[1,empty,3]
+arr.filter(item=>item)
+//out=>[1,3]
+arr 
+//out=>[1,empty,3]
+so => arr =arr.filter(item=>item)
+```
+```jsx
+//
+let newTaskList = [...tasks]
+
+//
+ const deleteTask = (taskId) => {
+    let newTaskList = [...tasks]
+    delete newTaskList[tasks.findIndex((task) => task.id === taskId)]; 
+    newTaskList = newTaskList.filter((item) => item);
+    setTasks(newTaskList);
+  }
 ```
 
 #### count tasks

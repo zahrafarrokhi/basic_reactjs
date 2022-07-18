@@ -37,9 +37,9 @@ const TodoApp = () => {
   }
   //deleteTask
   const deleteTask = (taskId) => {
-    let newTaskList = tasks
+    let newTaskList = [...tasks]
     delete newTaskList[tasks.findIndex((task) => task.id === taskId)]; 
-    newTaskList.filter((item) => item)
+    newTaskList = newTaskList.filter((item) => item);
     setTasks(newTaskList);
   }
   return ( 

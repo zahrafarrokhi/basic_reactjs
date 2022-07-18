@@ -8,7 +8,8 @@ const TaskItem = (props) => {
       <li className="TaskItem ">
         <input type="checkbox" checked={taskitem.status} />
         <h2>{taskitem.title}</h2>
-        <button onClick={()=>{deleteTask(taskitem.id)}}>
+        {/* <h3>{ taskitem.id}</h3> */}
+        <button onClick={()=>(deleteTask(taskitem.id))}>
           <FaTrashAlt />
         </button>
       </li>
