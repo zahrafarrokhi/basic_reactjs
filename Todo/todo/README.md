@@ -40,7 +40,9 @@ body {
 ```
 
 #### CSS antialiasing cheatsheet
+
 [font smoothing](https://devhints.io/css-antialias)
+
 ```jsx
 //index.css
 *{
@@ -49,17 +51,22 @@ body {
 -moz-osx-font-smoothing: grayscale;
 }
 ```
+
 #### background-color
+
 #### flat colors
+
 [flat colors](https://flatuicolors.com/palette/defo)
+
 ```jsx
 body {
-	
+
   background-color: #ecf0f1;
 }
 ```
 
 ### css
+
 ```jsx
 //TodoApp.css
 //Header.css
@@ -81,7 +88,9 @@ h1{
 ```
 
 #### react-icons
+
 (react-icons)[https://react-icons.github.io/react-icons/]
+
 ```jsx
 npm install react-icons --save
 //TaskItem.jsx
@@ -89,18 +98,23 @@ import { FaTrashAlt } from "react-icons/fa";
 ```
 
 #### (Bem styling)
+
 (Bem styling)[http://getbem.com/introduction/]
+
 ```jsx
 //
 //FilterFooter--filters
 ```
 
 ### actios
+
 ```jsx
 npm install uuid
 import { v4 as uuidv4 } from 'uuid';
 ```
+
 `TodoApp.jsx`
+
 ```jsx
 const [tasks, setTasks] = useState([]);
 
@@ -123,12 +137,16 @@ const [tasks, setTasks] = useState([]);
 ```
 
 `TaskList.jsx`
+
 ```jsx
- const { tasklist } = props;
- {tasklist.map((task) => {
-          return (<TaskItem taskitem={task} />)
-        })}
+const { tasklist } = props;
+{
+  tasklist.map((task) => {
+    return <TaskItem taskitem={task} />;
+  });
+}
 ```
+
 `TaskItem.jsx`
 
 ```jsx
@@ -138,68 +156,71 @@ const {taskitem} = props;
 ```
 
 ###### state AddTaskForm
+
 `AddTaskForm.jsx`
+
 ```jsx
 //AddTaskForm.jsx
-const [value, setValue] = useState('');
- 
+const [value, setValue] = useState("");
+
 const changeInput = (event) => {
   if (event) event.preventDefault();
   setValue(event.target.value);
-    
-  }
+};
 //
-<input onChange={changeInput} type="text" placeholder="what needs to be done?" />
+<input
+  onChange={changeInput}
+  type="text"
+  placeholder="what needs to be done?"
+/>;
 //AddTaskForm.jsx
-  const Submit = () => {
-    
-  }
- <form className="todo" onSubmit={Submit}>
-        .
-        .
- </form>
- ```
- #### ADD TASK
- ```jsx
+const Submit = () => {};
+<form className="todo" onSubmit={Submit}>
+  . .
+</form>;
+```
+
+#### ADD TASK
+
+```jsx
 //TodoApp.jsx
- const addTask = (taskTitle) => {
-    
-    setTasks([
-      ...tasks,
-      {
-        id:uuidv4(),
-        title: taskTitle,
-        status:false
-        }
-    ])
-    
-  }
- <AddTaskForm  addTask={addTask}/>
- //AddTaskForm.jsx
+const addTask = (taskTitle) => {
+  setTasks([
+    ...tasks,
+    {
+      id: uuidv4(),
+      title: taskTitle,
+      status: false,
+    },
+  ]);
+};
+<AddTaskForm addTask={addTask} />;
+//AddTaskForm.jsx
 const { addTask } = props;
 const Submit = () => {
-    addTask(value);
-  }
+  addTask(value);
+};
 // !value && value == ""
 const Submit = () => {
-    if (!value || value === "")
-    {
-      return
-    }
-    addTask(value);
+  if (!value || value === "") {
+    return;
   }
+  addTask(value);
+};
 //dont refresh page
- const Submit = (event) => {
-    if (event) event.preventDefault();
-    if (!value && value == "")
-    {
-      return
-    }
-    addTask(value);
+const Submit = (event) => {
+  if (event) event.preventDefault();
+  if (!value && value == "") {
+    return;
   }
+  addTask(value);
+};
 ```
+
 ### DELETE TASK
+
 ###### example
+
 ```jsx
 console.log()
 const tasks = [ {
@@ -235,58 +256,113 @@ newTaskList.filter(item=>item)
 
 
 ```
+
 ##### deleteTask
+
 ```jsx
 //TodoApp.jsx
- //deleteTask
-  const deleteTask = (taskId) => {
-    let newTaskList = tasks
-    delete newTaskList[tasks.findIndex((task) => task.id === taskId)]; 
-    newTaskList.filter((item) => item)
-    setTasks(newTaskList);
-  }
- <TaskList tasklist={tasks} deleteTask={deleteTask } />
- //TaskList
-  {tasklist.map((task) => {
-          return (<TaskItem taskitem={task} deleteTask={ deleteTask} />)
-  })}
+//deleteTask
+const deleteTask = (taskId) => {
+  let newTaskList = tasks;
+  delete newTaskList[tasks.findIndex((task) => task.id === taskId)];
+  newTaskList.filter((item) => item);
+  setTasks(newTaskList);
+};
+<TaskList tasklist={tasks} deleteTask={deleteTask} />;
+//TaskList
+{
+  tasklist.map((task) => {
+    return <TaskItem taskitem={task} deleteTask={deleteTask} />;
+  });
+}
 //TaskItem.jsx
-const { taskitem ,deleteTask} = props;
-<button onClick={()=>{deleteTask(taskitem.id)}}>
-          <FaTrashAlt />
- </button>
+const { taskitem, deleteTask } = props;
+<button
+  onClick={() => {
+    deleteTask(taskitem.id);
+  }}
+>
+  <FaTrashAlt />
+</button>;
 ```
+
 #### fix delete
+
 ### filter points
+
 ```jsx
 //filter point
-let arr = [1,2,3]
-delete arr[arr.findIndex(x=>x==2)]
-arr
+let arr = [1, 2, 3];
+delete arr[arr.findIndex((x) => x == 2)];
+arr;
 //out=>[1,empty,3]
-arr.filter(item=>item)
+arr.filter((item) => item);
 //out=>[1,3]
-arr 
+arr;
 //out=>[1,empty,3]
-so => arr =arr.filter(item=>item)
+(so) => (arr = arr.filter((item) => item));
 ```
+
 ```jsx
 //
-let newTaskList = [...tasks]
+let newTaskList = [...tasks];
 
 //
- const deleteTask = (taskId) => {
-    let newTaskList = [...tasks]
-    delete newTaskList[tasks.findIndex((task) => task.id === taskId)]; 
-    newTaskList = newTaskList.filter((item) => item);
-    setTasks(newTaskList);
-  }
+const deleteTask = (taskId) => {
+  let newTaskList = [...tasks];
+  delete newTaskList[tasks.findIndex((task) => task.id === taskId)];
+  newTaskList = newTaskList.filter((item) => item);
+  setTasks(newTaskList);
+};
 ```
 
 #### count tasks
+
 ```jsx
 //TodoApp.jsx
 <FilterFooter tasks={tasks } />
 //FilterFooter.jsx
  <div className="FilterFooter--countItems">{tasks.length }</div>
+```
+
+#### filters
+
+```jsx
+//FilterFooter.jsx
+const [filter, setFilter] = useState("all");
+const handleFilter = (filterName) => {
+  setFilter(filterName);
+};
+<button
+  onClick={() => handleFilter("all")}
+  className={filter === "all" ? "active" : ""}
+>
+  All
+</button>;
+//TodoApp.jsx
+//state
+const [filter, setFilter] = useState("");
+
+const [filteredTasks, setFilteredTasks] = useState([]);
+
+useEffect(() => {
+  // console.log("filter", filter)
+  if (filter === "all") {
+    setFilteredTasks(tasks);
+  }
+
+  if (filter === "completed") {
+    const comp = tasks.filter((task) => task.status);
+    setFilteredTasks(comp);
+  }
+  if (filter === "active") {
+    const comp = tasks.filter((task) => !task.status);
+    setFilteredTasks(comp);
+  }
+}, [filter, tasks]);
+//tasklist={filteredTasks}
+ <TaskList tasklist={filteredTasks} deleteTask={deleteTask } />
+// item length => tasks={filteredTasks }
+<FilterFooter updateFilter={setFilter } tasks={filteredTasks } />
+
 ```

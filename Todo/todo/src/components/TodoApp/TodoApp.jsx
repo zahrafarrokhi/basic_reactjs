@@ -8,6 +8,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 const TodoApp = () => {
   const [tasks, setTasks] = useState([]);
+  //filter
+  const [filter, setFilter] = useState('');
+  //
+  const [filteredTasks, setFilteredTasks] = useState([]);
+  
   useEffect(() => {
     setTasks([
     {
@@ -22,6 +27,22 @@ const TodoApp = () => {
       },
     ])
   }, [])
+  //filter
+  useEffect(() => {
+    // console.log("filter", filter)
+    if (filter === "all") {
+      setFilteredTasks(tasks);
+    }
+    
+    if (filter === "completed") {
+      const comp = tasks.filter(task => task.status)
+      setFilteredTasks(comp);
+    }
+    if (filter === "active") {
+      const comp = tasks.filter(task => !task.status)
+      setFilteredTasks(comp);
+    }
+  }, [filter,tasks])
   //addTask
   const addTask = (taskTitle) => {
     
@@ -45,8 +66,8 @@ const TodoApp = () => {
   return ( 
     <div className="TodoApp">      
       <AddTaskForm  addTask={addTask}/>
-      <TaskList tasklist={tasks} deleteTask={deleteTask } />
-      <FilterFooter tasks={tasks } />
+      <TaskList tasklist={filteredTasks} deleteTask={deleteTask } />
+      <FilterFooter updateFilter={setFilter } tasks={filteredTasks } />
     </div>
    );
 }
