@@ -73,4 +73,24 @@ h1{
 }
 //Footer.css
 //AddTaskForm.css
+
+//TaskList.css
+//TaskItem.css
+
+//FilterFooter
+```
+
+#### react-icons
+(react-icons)[https://react-icons.github.io/react-icons/]
+```jsx
+npm install react-icons --save
+//TaskItem.jsx
+import { FaTrashAlt } from "react-icons/fa";
+```
+
+#### (Bem styling)
+(Bem styling)[http://getbem.com/introduction/]
+```jsx
+//
+//FilterFooter--filters
 ```
