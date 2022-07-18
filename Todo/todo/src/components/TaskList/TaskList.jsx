@@ -1,11 +1,17 @@
 import TaskItem from '../TaskItem/TaskItem'
 import "./TaskList.css";
 
-const TaskList = () => {
+const TaskList = (props) => {
+  const { tasklist } = props;
+
   return (
     <div className="TaskList">
       <ul>
-      <TaskItem/>
+        {/* <TaskItem/> */}
+        {/*  */}
+        {tasklist.map((task) => {
+          return (<TaskItem taskitem={task} />)
+        })}
       </ul>
     </div>
   );

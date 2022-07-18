@@ -1,12 +1,13 @@
 import "./TaskItem.css";
 import { FaTrashAlt } from "react-icons/fa";
 
-const TaskItem = () => {
+const TaskItem = (props) => {
+  const { taskitem } = props;
   return (
     <div>
       <li className="TaskItem ">
-        <input type="checkbox" />
-        <h2>Build This App</h2>
+        <input type="checkbox" checked={taskitem.status} />
+        <h2>{taskitem.title}</h2>
         <button>
           <FaTrashAlt />
         </button>

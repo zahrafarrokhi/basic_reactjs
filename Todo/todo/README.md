@@ -94,3 +94,108 @@ import { FaTrashAlt } from "react-icons/fa";
 //
 //FilterFooter--filters
 ```
+
+### actios
+```jsx
+npm install uuid
+import { v4 as uuidv4 } from 'uuid';
+```
+`TodoApp.jsx`
+```jsx
+const [tasks, setTasks] = useState([]);
+
+ useEffect(() => {
+    setTasks([
+    {
+      id:uuidv4(),
+      title: "default title",
+      status:true
+      },
+    {
+        id:uuidv4(),
+        title: "default title 2",
+        status:false
+      },
+    ])
+  })
+
+ <TaskList tasklist={tasks} />
+```
+
+`TaskList.jsx`
+```jsx
+ const { tasklist } = props;
+ {tasklist.map((task) => {
+          return (<TaskItem taskitem={task} />)
+        })}
+```
+`TaskItem.jsx`
+
+```jsx
+const {taskitem} = props;
+<input type="checkbox" checked={taskitem.status} />
+<h2>{taskitem.title}</h2>
+```
+
+###### state AddTaskForm
+`AddTaskForm.jsx`
+```jsx
+//AddTaskForm.jsx
+const [value, setValue] = useState('');
+ 
+const changeInput = (event) => {
+  if (event) event.preventDefault();
+  setValue(event.target.value);
+    
+  }
+//
+<input onChange={changeInput} type="text" placeholder="what needs to be done?" />
+//AddTaskForm.jsx
+  const Submit = () => {
+    
+  }
+ <form className="todo" onSubmit={Submit}>
+        .
+        .
+ </form>
+ ```
+ #### ADD TASK
+ ```jsx
+//TodoApp.jsx
+ const addTask = (taskTitle) => {
+    
+    setTasks([
+      ...tasks,
+      {
+        id:uuidv4(),
+        title: taskTitle,
+        status:false
+        }
+    ])
+    
+  }
+ <AddTaskForm  addTask={addTask}/>
+ //AddTaskForm.jsx
+const { addTask } = props;
+const Submit = () => {
+    addTask(value);
+  }
+// !value && value == ""
+const Submit = () => {
+    if (!value || value === "")
+    {
+      return
+    }
+    addTask(value);
+  }
+//dont refresh page
+ const Submit = (event) => {
+    if (event) event.preventDefault();
+    if (!value && value == "")
+    {
+      return
+    }
+    addTask(value);
+  }
+```
+### DELETE TASK
