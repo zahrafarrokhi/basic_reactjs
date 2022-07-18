@@ -1,11 +1,12 @@
+import "./AddTaskForm.css";
 const AddTaskForm = () => {
   return (
-    <header className="AddTaskForm">
+    <div className="AddTaskForm">
       <form className="todo">
-        <input type="text" />
-        <button type="submit">add</button>
+        <input type="text" placeholder="what needs to be done?" />
+        <button type="submit">Add</button>
       </form>
-    </header>
+    </div>
   );
 };
 

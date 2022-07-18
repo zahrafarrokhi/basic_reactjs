@@ -1,5 +1,6 @@
+import "./Footer.css"
 const Footer = () => {
-  return <footer>developed by @zahra</footer>;
+  return <footer className="Footer">developed by @zahra</footer>;
 };
 
 export default Footer;

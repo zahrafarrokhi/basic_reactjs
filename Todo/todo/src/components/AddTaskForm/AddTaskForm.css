@@ -1,0 +1,36 @@
+.AddTaskForm {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.AddTaskForm form {
+  display: flex;
+}
+.AddTaskForm input {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.AddTaskForm input:focus {
+  border:1px solid #16a085;
+  outline: none;
+  border-radius: 10px;
+ 
+}
+.AddTaskForm button {
+  height: 50px;
+  font-size: 17px;
+  border: 1px solid #eee;
+  background-color: #eee;
+  border-radius: 3px;
+  padding: 5px;
+}
+.AddTaskForm button:hover {
+  border-color: #16a085;
+  background-color: #16a085;
+  cursor: pointer;
+  color: white;
+  transition-duration: 500ms;
+}

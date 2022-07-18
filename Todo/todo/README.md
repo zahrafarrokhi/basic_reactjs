@@ -50,9 +50,27 @@ body {
 }
 ```
 #### background-color
+#### flat colors
+[flat colors](https://flatuicolors.com/palette/defo)
 ```jsx
 body {
 	
-  background-color: #35bfbf;
+  background-color: #ecf0f1;
 }
+```
+
+### css
+```jsx
+//TodoApp.css
+//Header.css
+//index.css
+body{
+  font-weight:500
+}
+h1{
+	font-size: 30px;
+	font-weight: 300;
+}
+//Footer.css
+//AddTaskForm.css
 ```
