@@ -199,3 +199,23 @@ const Submit = () => {
   }
 ```
 ### DELETE TASK
+```jsx
+//TodoApp.jsx
+ //deleteTask
+  const deleteTask = (taskId) => {
+    let newTaskList = tasks
+    delete newTaskList[tasks.findIndex((task) => task.id === taskId)]; 
+    newTaskList.filter((item) => item)
+    setTasks(newTaskList);
+  }
+ <TaskList tasklist={tasks} deleteTask={deleteTask } />
+ //TaskList
+  {tasklist.map((task) => {
+          return (<TaskItem taskitem={task} deleteTask={ deleteTask} />)
+  })}
+//TaskItem.jsx
+const { taskitem ,deleteTask} = props;
+<button onClick={()=>{deleteTask(taskitem.id)}}>
+          <FaTrashAlt />
+ </button>
+```

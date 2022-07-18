@@ -2,7 +2,7 @@ import TaskItem from '../TaskItem/TaskItem'
 import "./TaskList.css";
 
 const TaskList = (props) => {
-  const { tasklist } = props;
+  const { tasklist,deleteTask } = props;
 
   return (
     <div className="TaskList">
@@ -10,7 +10,7 @@ const TaskList = (props) => {
         {/* <TaskItem/> */}
         {/*  */}
         {tasklist.map((task) => {
-          return (<TaskItem taskitem={task} />)
+          return (<TaskItem taskitem={task} deleteTask={ deleteTask} />)
         })}
       </ul>
     </div>
