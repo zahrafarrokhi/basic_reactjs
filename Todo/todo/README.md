@@ -219,3 +219,11 @@ const { taskitem ,deleteTask} = props;
           <FaTrashAlt />
  </button>
 ```
+
+#### count tasks
+```jsx
+//TodoApp.jsx
+<FilterFooter tasks={tasks } />
+//FilterFooter.jsx
+ <div className="FilterFooter--countItems">{tasks.length }</div>
+```

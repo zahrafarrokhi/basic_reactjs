@@ -1,8 +1,9 @@
 import "./FilterFooter.css";
-const FilterFooter = () => {
+const FilterFooter = (props) => {
+  const { tasks } = props;
   return (
     <div className="FilterFooter">
-      <div className="FilterFooter--countItems">2 items</div>
+      <div className="FilterFooter--countItems">{tasks.length }</div>
       <div className="FilterFooter--filters">
         <ul>
           <li>
