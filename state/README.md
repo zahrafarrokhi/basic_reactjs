@@ -226,6 +226,21 @@ function App() {
 export default App;
 ```
 
+when there is no input but you seen errors
+![useEffecterror](./screenshots/usememoerror.png)
+
+### solution
+
+```jsx
+useEffect(() => {
+  if (phone.length == 0 || /^09[0-9]{9}$/g.test(phone)) {
+    setError("");
+  } else {
+    setError("شماره‌ی واردشده قابل قبول نمی‌باشد.");
+  }
+}, [phone, setError]);
+```
+
 ### improve error
 
 1.useEffect twice update state
@@ -335,10 +350,10 @@ const error = useMemo(() => {
 
         />
 ```
+
 ```jsx
 import { Button, TextField } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
-
 
 function App() {
   // state
@@ -346,14 +361,11 @@ function App() {
   const [password, setPassword] = useState("");
   const error = useMemo(() => {
     if (/^09[0-9]{9}$/g.test(phone)) {
-      return ""
+      return "";
+    } else {
+      return "شماره‌ی واردشده قابل قبول نمی‌باشد.";
     }
-    else {
-     return("شماره‌ی واردشده قابل قبول نمی‌باشد.");
-    }
-    
-  },[phone])
- 
+  }, [phone]);
 
   return (
     <div className="w-full h-full flex justify-center items-center ">
@@ -374,49 +386,46 @@ function App() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-         <div className="flex justify-between md:justify-around w-[95%] md:w-[80%] self-center text-sm mt-14">
-        <Button
-          variant="contained"
-          // disabled={error || phone.length === 0 || password.length === 0}
-          // onClick={submit}
-        >
-          ورود{" "}
-        </Button>
-        <Button
-          variant="outlined"
-          className="rounded-lg bg-white p-2"
-          // onClick={() => router.push("/auth/forget-password")}
-        >
-          فراموشی رمز عبور{" "}
-        </Button>
+        <div className="flex justify-between md:justify-around w-[95%] md:w-[80%] self-center text-sm mt-14">
+          <Button
+            variant="contained"
+            // disabled={error || phone.length === 0 || password.length === 0}
+            // onClick={submit}
+          >
+            ورود{" "}
+          </Button>
+          <Button
+            variant="outlined"
+            className="rounded-lg bg-white p-2"
+            // onClick={() => router.push("/auth/forget-password")}
+          >
+            فراموشی رمز عبور{" "}
+          </Button>
+        </div>
       </div>
-      </div>
- 
-
-     
     </div>
   );
 }
 
 export default App;
-
-
 ```
+
+when there is no input but you seen errors
 ![useMemoerror](./screenshots/usememoerror.png)
+
 ### solution
 
 ```jsx
 // phone.length ==0 ||
- const error = useMemo(() => {
-    if (phone.length ==0 ||/^09[0-9]{9}$/g.test(phone)) {
-      return ""
-    }
-    else {
-     return("شماره‌ی واردشده قابل قبول نمی‌باشد.");
-    }
-    
-  },[phone])
+const error = useMemo(() => {
+  if (phone.length == 0 || /^09[0-9]{9}$/g.test(phone)) {
+    return "";
+  } else {
+    return "شماره‌ی واردشده قابل قبول نمی‌باشد.";
+  }
+}, [phone]);
 ```
+
 ## style point
 
 how to center input text?
