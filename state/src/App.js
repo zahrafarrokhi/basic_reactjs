@@ -1,98 +1,77 @@
-import { Button, TextField } from "@mui/material";
-import { useEffect, useMemo, useState } from "react";
-
+import { Button, IconButton, TextField } from "@mui/material";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { FaMicrophone } from "react-icons/fa";
+import { ImPause2 } from "react-icons/im";
+import { HiUserGroup } from "react-icons/hi";
 
 function App() {
   // state
-  const [totalState, setTotalState] = useState(
-
-    {
-      first_name: '', last_name: '', phone: '', password: '',
-    },
-  );
-
-  const error = useMemo(() => {
-    if (phone.length ==0 ||/^09[0-9]{9}$/g.test(phone)) {
-      return ""
-    }
-    else {
-     return("شماره‌ی واردشده قابل قبول نمی‌باشد.");
-    }
-    
-  }, [phone])
-  
-  const updateState = (e) => {
-    // const newState = { ...totalState }
-    // newState[e.target.name] = e.target.value
-    // setTotalState(newState)
-    setTotalState({ ...totalState, [e.target.name]: e.target.value})
-  }
-
+  const [title, setTitle] = useState("");
+  const [pause, setPause] = useState(true);
+  const [file, setFile] = useState();
+  const fileRef = useRef();
  
 
   return (
     <div className="w-full h-full flex justify-center items-center ">
-      <div className="flex flex-col shadow-lg self-center my-4 gap-4 basis-[30rem] min-h-40 p-6 border-2 border-solid border-stone-300 rounded-lg">
+      <div className="flex flex-col shadow-lg self-center my-4 gap-4 basis-[30rem] min-h-40 p-6 border-2 border-solid border-primary rounded-lg">
 
       <TextField
           fullWidth
-          label="نام"
-          value={totalState.first_name}
-          name="first_name"
-          onChange={updateState }
-          error={error}
-          helperText={error}
-          inputProps={{ style: { textAlign: "center" } }}
+          label="عنوان جلسه"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
-
-      <TextField
-          fullWidth
-          label=" نام خانوادگی"
-          value={totalState.last_name}
-          name="last_name"
-          onChange={updateState}
-          error={error}
-          helperText={error}
-          inputProps={{ style: { textAlign: "center" } }}
-        />
-        <TextField
-          fullWidth
-          label="شماره همراه"
-          value={totalState.phone}
-          name="phone"
-          onChange={updateState}
-          error={error}
-          helperText={error}
-          inputProps={{ style: { textAlign: "center" } }}
-        />
-        <TextField
-          type="password"
-          fullWidth
-          label="رمز عبور"
-          value={totalState.password}
-          name="password"
-          onChange={updateState}
-        />
-         <div className="flex justify-between md:justify-around w-[95%] md:w-[80%] self-center text-sm mt-14">
-        <Button
-          variant="contained"
-          // disabled={error || phone.length === 0 || password.length === 0}
-          // onClick={submit}
-        >
-          ورود{" "}
-        </Button>
-        <Button
-          variant="outlined"
-          className="rounded-lg bg-white p-2"
-          // onClick={() => router.push("/auth/forget-password")}
-        >
-          فراموشی رمز عبور{" "}
-        </Button>
-      </div>
-      </div>
- 
-
+ <div className="flex items-center basis-[65%]  h-12 p-2 rounded-lg font-bold">
+            انتخاب فایل:
+            <input
+              type="file"
+              onChange={(e) => setFile(e.target.files[0])}
+              ref={fileRef}
+              className="hidden"
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              className="mx-4"
+              onClick={() => fileRef.current?.click()}
+            >
+              آپلودفایل
+            </Button>
+          </div>
+      
+      
+          <div className="relative rounded-full self-center">
+            {!pause && (
+              <div className="bg-primary animate-ping absolute inset-0 rounded-full" />
+            )}
+            <IconButton
+              className="shadow-xl self-center w-20 aspect-square "
+              color="primary"
+              onClick={() => setPause(!pause)}
+              // onClick={() => pause ? setPause(false) : setPause(true)}
+              // onClick={() => setPause(pause ? false : true)}
+              sx={{
+                backgroundColor: pause
+                  ? "primary.contrastText"
+                  : "primary.main",
+                color: pause ? "primary.main" : "primary.contrastText",
+                //focus & active (bg & color)
+                "&:focus,&:active": {
+                  backgroundColor: pause
+                    ? "primary.contrastText"
+                    : "primary.main",
+                  color: pause ? "primary.main" : "primary.contrastText",
+                },
+              }}
+            >
+              {pause && <FaMicrophone className="text-lg" />}
+              {!pause && <ImPause2 className="text-lg" />}
+            </IconButton>
+          </div>
      
+     </div>
+   
     </div>
   );
 }
