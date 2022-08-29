@@ -19,7 +19,15 @@ function App() {
      return("شماره‌ی واردشده قابل قبول نمی‌باشد.");
     }
     
-  },[phone])
+  }, [phone])
+  
+  const updateState = (e) => {
+    // const newState = { ...totalState }
+    // newState[e.target.name] = e.target.value
+    // setTotalState(newState)
+    setTotalState({ ...totalState, [e.target.name]: e.target.value})
+  }
+
  
 
   return (
@@ -30,7 +38,8 @@ function App() {
           fullWidth
           label="نام"
           value={totalState.first_name}
-          onChange={(e) => setTotalState({ ...totalState, first_name: e.target.value })}
+          name="first_name"
+          onChange={updateState }
           error={error}
           helperText={error}
           inputProps={{ style: { textAlign: "center" } }}
@@ -40,7 +49,8 @@ function App() {
           fullWidth
           label=" نام خانوادگی"
           value={totalState.last_name}
-          onChange={(e) => setTotalState({ ...totalState, last_name: e.target.value })}
+          name="last_name"
+          onChange={updateState}
           error={error}
           helperText={error}
           inputProps={{ style: { textAlign: "center" } }}
@@ -49,7 +59,8 @@ function App() {
           fullWidth
           label="شماره همراه"
           value={totalState.phone}
-          onChange={(e) => setTotalState({ ...totalState, phone: e.target.value })}
+          name="phone"
+          onChange={updateState}
           error={error}
           helperText={error}
           inputProps={{ style: { textAlign: "center" } }}
@@ -59,7 +70,8 @@ function App() {
           fullWidth
           label="رمز عبور"
           value={totalState.password}
-          onChange={(e) => setTotalState({ ...totalState, password: e.target.value })}
+          name="password"
+          onChange={updateState}
         />
          <div className="flex justify-between md:justify-around w-[95%] md:w-[80%] self-center text-sm mt-14">
         <Button
