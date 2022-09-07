@@ -810,3 +810,7 @@ function App() {
 export default App;
 
 ```
+
+![Idea 01](./screenshots/1%20-%20Idea%20%2301.png)
+![Idea 02](./screenshots/2%20-%20Idea%20%2302.png)
+![Idea 03](./screenshots/3%20-%20Idea%20%2303.png)
