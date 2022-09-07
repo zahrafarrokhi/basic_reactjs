@@ -5,10 +5,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 function App() {
   // state
   const [totalchecked, setChecked] = useState({
-    ch01:false,ch02:false,ch03:false,ch04:false, 
-  }
-   
-  );
+    ch01: false, ch02: false, ch03: false, ch04: false,
+  });
   const CheckboxList = [
     {
       name: 'parent1',
@@ -22,6 +20,7 @@ function App() {
           id: 'ch02',
           name:'child2'
         },
+       
       ]
     },
     {
