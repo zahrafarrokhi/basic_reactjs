@@ -24,6 +24,7 @@ module.exports = {
 ```
 
 ### index.js
+### mui
 ```jsx
 const theme = createTheme({
   direction: 'rtl',
