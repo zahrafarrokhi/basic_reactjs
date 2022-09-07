@@ -80,6 +80,8 @@ function App() {
           icon={<BookmarkBorder />}
           checkedIcon={<Bookmark />}
         />
+        <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+
       </div>
     </div>
   );

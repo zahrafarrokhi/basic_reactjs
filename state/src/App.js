@@ -1,77 +1,36 @@
-import { Button, IconButton, TextField } from "@mui/material";
+import { Bookmark, BookmarkBorder, Favorite, FavoriteBorder } from "@mui/icons-material";
+import { Button, Checkbox, FormControlLabel, IconButton, TextField } from "@mui/material";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaMicrophone } from "react-icons/fa";
-import { ImPause2 } from "react-icons/im";
-import { HiUserGroup } from "react-icons/hi";
 
 function App() {
   // state
-  const [title, setTitle] = useState("");
-  const [pause, setPause] = useState(true);
-  const [file, setFile] = useState();
-  const fileRef = useRef();
- 
-
+  const [totalchecked, setChecked] = useState({
+    check:false,heart:false,book:true
+  }
+   
+  );
   return (
     <div className="w-full h-full flex justify-center items-center ">
-      <div className="flex flex-col shadow-lg self-center my-4 gap-4 basis-[30rem] min-h-40 p-6 border-2 border-solid border-primary rounded-lg">
-
-      <TextField
-          fullWidth
-          label="عنوان جلسه"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+      <div className="flex flex-col shadow-lg self-center items-start my-4 gap-4 basis-[30rem] min-h-40 p-6 border-2 border-solid border-primary rounded-lg">
+        <Checkbox
+          checked={totalchecked.check}
+          onChange={(e)=>setChecked({ ...totalchecked, check: e.target.checked })}
+          inputProps={{ "aria-label": "controlled" }}
         />
- <div className="flex items-center basis-[65%]  h-12 p-2 rounded-lg font-bold">
-            انتخاب فایل:
-            <input
-              type="file"
-              onChange={(e) => setFile(e.target.files[0])}
-              ref={fileRef}
-              className="hidden"
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              className="mx-4"
-              onClick={() => fileRef.current?.click()}
-            >
-              آپلودفایل
-            </Button>
-          </div>
-      
-      
-          <div className="relative rounded-full self-center">
-            {!pause && (
-              <div className="bg-primary animate-ping absolute inset-0 rounded-full" />
-            )}
-            <IconButton
-              className="shadow-xl self-center w-20 aspect-square "
-              color="primary"
-              onClick={() => setPause(!pause)}
-              // onClick={() => pause ? setPause(false) : setPause(true)}
-              // onClick={() => setPause(pause ? false : true)}
-              sx={{
-                backgroundColor: pause
-                  ? "primary.contrastText"
-                  : "primary.main",
-                color: pause ? "primary.main" : "primary.contrastText",
-                //focus & active (bg & color)
-                "&:focus,&:active": {
-                  backgroundColor: pause
-                    ? "primary.contrastText"
-                    : "primary.main",
-                  color: pause ? "primary.main" : "primary.contrastText",
-                },
-              }}
-            >
-              {pause && <FaMicrophone className="text-lg" />}
-              {!pause && <ImPause2 className="text-lg" />}
-            </IconButton>
-          </div>
-     
-     </div>
-   
+        <Checkbox
+           checked={totalchecked.heart}
+           onChange={(e)=>setChecked({ ...totalchecked, heart: e.target.checked })}
+          icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
+<Checkbox
+  checked={totalchecked.book}
+  onChange={(e)=>setChecked({ ...totalchecked, book: e.target.checked })}
+  icon={<BookmarkBorder />}
+  checkedIcon={<Bookmark />}
+        />
+        
+        <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+
+      </div>
     </div>
   );
 }
