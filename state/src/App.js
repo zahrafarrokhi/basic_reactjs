@@ -5,27 +5,41 @@ import { useEffect, useMemo, useRef, useState } from "react";
 function App() {
   // state
   const [totalchecked, setChecked] = useState({
-    child1:false,child2:false,book:true
+    ch01:false,ch02:false,ch03:false,ch04:false, 
   }
    
   );
+  const CheckboxList = [
+    {
+      name: 'parent1',
+      children: [
+        {
+          id: 'ch01',
+          name:'child1'
 
-  const children = (
-    <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
-      <FormControlLabel
-        label="Child 1"
-        control={<Checkbox checked={totalchecked.child1}  onChange={(e) =>
-          setChecked({ ...totalchecked, child1: e.target.checked })
-        } />}
-      />
-      <FormControlLabel
-        label="Child 2"
-        control={<Checkbox checked={totalchecked.child2}  onChange={(e) =>
-          setChecked({ ...totalchecked, child2: e.target.checked })
-        } />}
-      />
-    </Box>
-  );
+        },
+        {
+          id: 'ch02',
+          name:'child2'
+        },
+      ]
+    },
+    {
+      name: 'parent2',
+      children: [
+        {
+          id: 'ch03',
+          name:'child1'
+
+        },
+        {
+          id: 'ch04',
+          name:'child2'
+        },
+      ]
+  },
+]
+
 
   return (
     <div className="w-full h-full flex justify-center items-center ">
@@ -33,22 +47,45 @@ function App() {
 
 
 
-    <div>
+  {CheckboxList.map((check)=>  <div>
       <FormControlLabel
-        label="Parent"
+        label={check.name}
         control={
           <Checkbox
-            checked={totalchecked.child1 && totalchecked.child2}
-            indeterminate={totalchecked.child1  !== totalchecked.child2}
-            onChange={(e) =>
-              setChecked({ ...totalchecked, child1: e.target.checked, child2: e.target.checked })
-            } />
+            //chidren => {name,id } and totalchecked =>{ch01:t,ch02:f...}
+            // checked={check.children.map((c)=>totalchecked[c.id]).filter(c=>c==false).length == 0}
+            checked={check.children.map((c) => totalchecked[c.id]).reduce((prev, cur) => prev && cur, true)}
+            // At least one child is checked
+            // checked={check.children.map((c)=>totalchecked[c.id]).filter(c=>c==true).length > 0  && check.children.map((c)=>totalchecked[c.id]).filter(c=>c==false).length !== 0}
+            indeterminate={check.children.map((c) => totalchecked[c.id]).reduce((prev, cur) => prev || cur, false) && check.children.map((c)=>totalchecked[c.id]).filter(c=>c==false).length !== 0}
+            onChange={(e) => {
+              let newchecked = { ...totalchecked, };
+
+              for (let ch of check.children) {
+                newchecked[ch.id] = e.target.checked
+              }
+    
+              setChecked(newchecked)
+            }} />
         }
       />
-      {children}
+    <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
+      {check.children.map((child)=>
+        <FormControlLabel
+        label={child.name}
+        control={
+          <Checkbox
+            checked={totalchecked[child.id]}
+            onChange={(e) =>
+              setChecked({ ...totalchecked, [child.id]:e.target.checked })
+            } />
+        }
+      />)
+      }
+      </Box >
     </div>
 
-
+)}
 
       
 
