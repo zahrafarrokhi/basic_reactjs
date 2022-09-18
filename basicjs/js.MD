@@ -1103,6 +1103,7 @@ numbers.splice(2,0,"a")
 ```
 
 ### search on array
+#### perimiteve
 ```jsx
 // perimiteve
 const numbers = [1,2]
@@ -1115,7 +1116,9 @@ console.log(numbers.includes(1,1))
 console.log(numbers.lastIndexOf(1))
 //return true or false
 console.log(numbers.includes(1))
-
+```
+#### refrence
+```jsx
 // refrence
 // includes
 //array with object elements
@@ -1124,7 +1127,9 @@ const numbers = [
   {id:2,name:'b'},
   
 ]
+//point 
 console.log(numbers.includes({id:1,name:'a'}))
+return false
 //include return  f or t => f beacuse it reference type and checked adress
 //out => f (adress)
 ```
