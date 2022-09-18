@@ -1145,10 +1145,12 @@ const result = courses.find(function(course){
   return course.name === "a"
 })
 console.log(result);
+result=>{id: 1, name: 'a'}
 //find(return element)
 const array = [5,10,20]
 const f = array.find(e => e > 10)
 console.log(f)
+f=>20
 ```
 ### The difference between find and findIndex
 find(return element)
