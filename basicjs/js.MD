@@ -1108,7 +1108,7 @@ numbers.splice(2,0,"a")
 const numbers = [1,2]
 //The first number it finds is returned
 //return location
-console.log(numbers.indexOf(1))
+console.log(numbers.indexOf(1)) => true => indexOof,false=> -1
 // find 1 from 1
 console.log(numbers.includes(1,1))
 
