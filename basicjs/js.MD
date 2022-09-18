@@ -1145,6 +1145,7 @@ const result = courses.find(function(course){
   return course.name === "a"
 })
 console.log(result);
+//return first element have this condition
 result=>{id: 1, name: 'a'}
 //find(return element)
 const array = [5,10,20]
@@ -1166,6 +1167,7 @@ const result = courses.findIndex(function(course){
   return course.id === 2
 })
 console.log(result);
+result=> 1
 ```
 
 ## arow function
