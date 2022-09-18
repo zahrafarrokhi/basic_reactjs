@@ -1274,7 +1274,7 @@ const slice = [...combined]
 console.log(slice)
 
 ```
-## for,forEach
+## for,forEach Array
 ```jsx
 // for
 const numbers = [1,2,3,4];
