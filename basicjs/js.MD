@@ -1173,7 +1173,16 @@ result=> 1
 ## arow function
 ```jsx
 ()=>{}
+// find
+const courses = [
+  {id:1,name:'a'},
+  {id:2,name:'b'},
+  
+]
+const result = courses.find(course=>course.name === "a")
 
+console.log(result);
+{id: 1, name: 'a'}
 ```
 ### array
 ## remove of array(pop,shift,splice)
