@@ -1304,8 +1304,11 @@ console.log(joined)
 const message = 'coding is cool'
 const parts = message.split(' ');
 console.log(parts);
+['coding', 'is', 'cool']
+//
 const combined = parts.join('-');
 console.log(combined)
+coding-is-cool
 // use in url
 ```
 ## sort,reverse Array
