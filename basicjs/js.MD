@@ -1315,7 +1315,7 @@ coding-is-cool
 ```jsx
 // sort => numbers and string
 const numbers = [1,4,3,2];
-numbers.sort();
+numbers.sort(); => change basic array
 console.log(numbers);
 // reverse
 const numbers = [1,4,3,2];
