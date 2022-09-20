@@ -1632,10 +1632,15 @@ console.log(sum1)
 ### default parameter
 ```jsx
 function interest(p,rate=3.5,years=5){
+  console.log(p,rate,years)
   return ((p * rate)/100)* years;
+ 
 }
 
 console.log(interest(10000,2))
+//out
+10000 2 5
+10000
 ```
 ### getter,setter
 ```jsx
