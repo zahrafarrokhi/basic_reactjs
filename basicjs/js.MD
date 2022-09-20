@@ -1659,7 +1659,7 @@ const person = {
 };
 console.log(person.fullname());
 //getters => access properties
-// setters => chhange(mutate)
+// setters => change(mutate)
 const person = {
   fname :'zahra',
   lname :'farrkhi',
