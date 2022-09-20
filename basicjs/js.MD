@@ -1557,13 +1557,22 @@ console.log(move())
 ```
 
 #### hoisting(point call func before create)
-##### function Declaration
+
 ```jsx
+// function Declaration
 //point call func before create
 walk();
 function walk(){
   console.log("walk")
 }
+```
+```jsx
+//function Expression
+//point call func before create you have error => run is not defined
+run();
+let run = function(){
+console.log("run");}
+;
 ```
 ### Arguments
 ```jsx
