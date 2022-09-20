@@ -1658,6 +1658,8 @@ const person = {
   }
 };
 console.log(person.fullname());
+```
+```jsx
 //getters => access properties
 // setters => change(mutate)
 const person = {
