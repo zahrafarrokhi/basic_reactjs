@@ -1686,9 +1686,10 @@ console.log(person.fullname);
 function sum(...args){
   console.log(args);
 }
+
+console.log(sum(1,2,3,6))
 //out
 (4) [1, 2, 3, 6]
-console.log(sum(1,2,3,6))
 //sum with reduce
 function sum(...args){
   console.log(args);
