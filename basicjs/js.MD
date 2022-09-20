@@ -1614,7 +1614,7 @@ for(let n of numbers)
    su += n;
 console.log(su) 
 //out => 5
-//
+// default = 0
 const numbers = [1,-1,2,3];
 let sum1 = numbers.reduce(function(accumultor,currentValue){return accumultor+currentValue },0)
 console.log(sum1)
