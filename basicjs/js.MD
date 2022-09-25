@@ -1805,7 +1805,15 @@ fn();
 
 ### object oriented programming
 ```jsx
-//incapsulation
+//1-incapsulation
+//2-abstraction
+//3-Inheritance
+//4-polymorphism
+```
+
+### 1-incapsulation
+```jsx
+//function
 let baseSalary = 30000;
 let overTime =10;
 let rate = 20;
@@ -1814,7 +1822,7 @@ function getWage(baseSalary,overTime,rate){
   return baseSalary + (overTime * rate)
 }
 
-//
+// class (Variables and related methods inside an object(
 let employee = {
   baseSalary : 30000,
   overTime : 10,
@@ -1824,7 +1832,21 @@ let employee = {
     return this.baseSalary + (this.overTime + this.rate);
   }
 }
-//abstraction
+```
+### 2-abstraction
+```jsx
+
+//abstraction(Hide some methods and properties from outside view)
+//function Circle(radius){
+  this.radius = radius;
+  this.draw = function(){
+    console.log('draw');
+
+   
+  }
+}
+const circle = new Circle(10);
+//
 function Circle(radius){
   this.radius = radius;
   this.defaultLocation = {x:0,y:0};
@@ -1840,4 +1862,30 @@ function Circle(radius){
 }
 const circle = new Circle(10);
 Circle.computeOptimumLocation(2)
+
+
+// use let for abstraction
+function Circle(radius){
+  this.radius = radius;
+  let defaultLocation = {x:0,y:0};
+  let omputeOptimumLocation = function (factor){
+      //...
+  }
+  this.draw = function(){
+    computeOptimumLocation();
+    console.log('draw');
+
+   
+  }
+}
+const circle = new Circle(10);
+Circle.computeOptimumLocation(2)
+```
+###  3-Inheritance
+```jsx
+//shape
+//base class,super class,parent class
+//circle
+//dirived class,sub class,child class
+
 ```
