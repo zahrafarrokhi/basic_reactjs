@@ -1909,8 +1909,9 @@ set __proto__: ƒ __proto__()
 x.toString();
 
 ```
-### 
+### prototype
 ```jsx
+//Function
 function Circle(radius){
   this.radius = radius;
 }
@@ -1918,5 +1919,23 @@ function Circle(radius){
 const circle = new Circle(1);
 //
 Circle.prototype
+//{constructor: ƒ}
 circle.__proto__
+//{constructor: ƒ}
+
+//Object
+let obj = {}
+obj.__proto__
+//out
+//{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+Object.prototype
+//out
+//{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+
+//Array
+let array = []
+array.__proto__
+//[constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]
+Array.prototype
+
 ```
