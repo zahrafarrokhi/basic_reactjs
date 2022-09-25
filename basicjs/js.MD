@@ -1909,3 +1909,14 @@ set __proto__: ƒ __proto__()
 x.toString();
 
 ```
+### 
+```jsx
+function Circle(radius){
+  this.radius = radius;
+}
+
+const circle = new Circle(1);
+//
+Circle.prototype
+circle.__proto__
+```
