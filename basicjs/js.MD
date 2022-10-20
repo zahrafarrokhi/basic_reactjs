@@ -451,7 +451,7 @@ if (condition) {
 ```
 
 ```jsx
-hour = 12;
+let hour = 12;
 
 if (hour >= 6 && hour < 12) {
   console.log("good morning");
