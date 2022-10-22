@@ -196,26 +196,7 @@ text.split(",")    // Split on commas
 text.split(" ")    // Split on spaces
 text.split("|")    // Split on pipe
 ```
-#### JavaScript String Search
-```jsx
-J//avaScript Search Methods
-String indexOf()
-String lastIndexOf()
-String startsWith()
-String endsWith()
-//indexOf
-let str = "Please locate where 'locate' occurs!";
-str.indexOf("locate");
-//search
-let str = "Please locate where 'locate' occurs!";
-str.search("locate");
-//includes
-let text = "Hello world, welcome to the universe.";
-text.includes("world");
-//JavaScript String startsWith() and endsWith()
-let text = "Hello world, welcome to the universe.";
-text.startsWith("world", 6)  
-```
+
 ##### JavaScript Template Literals
 ```jsx
 //Back-Tics Syntax
@@ -1047,22 +1028,114 @@ const another = new String("zahra")
 typeof another=> 'object'
 message.length
 message.includes('e')
-message.startsWith('m')
-message.endssWith('e')
+
+//JavaScript String Search
 //find index => indexOf If it doesn't find it, it gives -1
 message.indexOf('on')
-let message = message.replace('project','listening')
-message.toUpperCase()
-message.toLowerCase()
+
 //trim => Remove the beginning and end spaces
 message.trim()
 message.trimLeft()
-message.split('')
-let message = 'working-on-project';
-message.split('-')
+
 // scape notation
 const message = 'her name.\'is sahar';
 const message = 'her name.\n is sahar';
+```
+#### JavaScript String Methods
+```jsx
+//Extracting String Parts
+slice(start, end)
+substring(start, end)
+substr(start, length)
+//slice
+et str = "Apple, Banana, Kiwi";
+let part = str.slice(7, 13);
+//substring
+substring() is similar to slice().
+The difference is that start and end values less than 0 are treated as 0 in substring().
+//substr
+substr() is similar to slice().
+The difference is that the second parameter specifies the length of the extracted part.
+```
+
+#### JavaScript String concat()
+```jsx
+let text1 = "Hello";
+let text2 = "World";
+let text3 = text1.concat(" ", text2);
+```
+
+#### JavaScript String Padding
+```jsx
+//padStart
+let numb = 5;
+let text = numb.toString();
+let padded = text.padStart(4,"0");
+padded => '0005'
+//JavaScript String padEnd()
+let text = "5";
+let padded = text.padEnd(4,"0");
+padded => "5000"
+```
+### JavaScript Number Methods
+```jsx
+//The parseInt() Method
+parseInt("-10.33");
+//
+Number()
+parseFloat()
+parseInt()
+```
+### Replacing String Content
+```jsx
+//replace
+//The result is stored in the variable
+let message = message.replace('project','listening')
+console.log(message)
+let text = "Please visit Microsoft!";
+let newText = text.replace("Microsoft", "W3Schools")
+console.log(newText)
+```
+#### JavaScript String Search
+```jsx
+//javaScript Search Methods
+String indexOf()
+String lastIndexOf()
+String startsWith()
+String endsWith()
+//indexOf
+//find index => indexOf If it doesn't find it, it gives -1
+let str = "Please locate where 'locate' occurs!";
+str.indexOf("locate");
+//search
+let str = "Please locate where 'locate' occurs!";
+str.search("locate");
+//includes
+let text = "Hello world, welcome to the universe.";
+text.includes("world");
+//JavaScript String startsWith() and endsWith()
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world", 6)  
+```
+
+#### JavaScript String split()
+```jsx
+text.split(",")    // Split on commas
+text.split(" ")    // Split on spaces
+text.split("|")    // Split on pipe
+text.split('-')    //Split on dash
+//
+text.split('')
+let text = 'working-on-project';
+text.split('-')
+```
+#### Converting to Upper and Lower Case
+```jsx
+let text1 = "Hello World!";
+let text2 = text1.toUpperCase();
+//
+let text1 = "Hello World!";       
+let text2 = text1.toLowerCase(); 
 ```
 ### string object
 ```jsx
@@ -1070,18 +1143,41 @@ const abc = new String('name')
 typeof abc => object
 ```
 ## template litreal
-
+#### JavaScript Template Literals
 ```jsx
+//Back-Tics Syntax
 1.
+Template Literals use back-ticks (``) rather than the quotes ("") to define a string:
+let text = `Hello World!`;
+2.
+//Quotes Inside Strings
+let text = `He's often called "Johnny"`;
+3.
+//Multiline Strings
+let text =
+`The quick
+brown fox
+jumps over
+the lazy dog`;
+4.
+//Interpolation
+${...}
+//Variable Substitutions
+let firstName = "John";
+let lastName = "Doe";
+let text = `Welcome ${firstName}, ${lastName}!`;
+
+5.
 const adc = `'working' .
 on proj
 `;
 console.log(adc)
-2.
+6.
 // without template
 let name = 'ali';
 let msg = 'hi '+name+'.thanks';
 console.log(msg)
+7.
 // with template 
 let name = 'ali';
 let msg = `hi ${name}.thanks`;
