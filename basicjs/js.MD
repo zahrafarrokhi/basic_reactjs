@@ -1016,6 +1016,21 @@ The JavaScript garbage collector runs automatically, keeps track of memory locat
 ```jsx
 * Math.PI
 * Math.random()
+
+function getRandom(min,max){
+  return Math.random()*(max-min)+min;
+}
+getRandom(1,2)
+//out=>1.8119625107916622
+
+function getRandom(min,max){
+  return Math.floor(Math.random()*(max-min)+min);
+}
+getRandom(1,2)
+//out=>1
+```
+
+```jsx
 * Math.round(1,2)
 * Math.max(1,2,10)
 * Math.min(1,2,7)
