@@ -1039,8 +1039,12 @@ getRandom(1,2)
 ## string
 ### string primitive
 ```jsx
+// string primitive
 let message = 'working on project';
-typeof message
+typeof message => 'string'
+//string object
+const another = new String("zahra")
+typeof another=> 'object'
 message.length
 message.includes('e')
 message.startsWith('m')
