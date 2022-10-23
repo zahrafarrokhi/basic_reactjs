@@ -1322,10 +1322,10 @@ numbers.forEach((number,i)=>console.log(i,number));
 ```
 ## join Array
 ```jsx
-const numbers = [1,2,3,4];
-const joined = numbers.join();
-const joined = numbers.join('');
-const joined = numbers.join(' ');
+const numbers = [1,2,3,4]; // turn to str
+const joined = numbers.join(); //out => '1,2,3,4'
+const joined = numbers.join(''); //out => '1234'
+const joined = numbers.join(' '); //out => '1 2 3 4'
 console.log(joined)
 ```
 ## split,join String
