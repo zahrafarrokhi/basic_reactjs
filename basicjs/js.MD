@@ -1292,7 +1292,11 @@ const first = [{id:1}];
 const second = [4,5,6];
 //spread
 const combined = [...first,...second];
+// out
+//[{id: 1},4,5,6]
 const combined = ['a',...first,...second];
+//out
+//['a', {id: 1}, 4, 5, 6]
 //slice without input => copy
 //copy 
 const slice = [...combined]
