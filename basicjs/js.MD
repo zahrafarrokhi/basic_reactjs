@@ -1500,10 +1500,11 @@ video.play()
 //title: 'a', paly: ƒ}
 ```
 #### function
+```jsx
 this in function refer to global
 global object in browser => window
 global object in node => global
-
+```
 ```jsx
 function playVideo(){
   console.log(this);
