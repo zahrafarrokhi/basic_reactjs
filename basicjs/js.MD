@@ -1623,6 +1623,14 @@ console.log(sum(1,2,3)) //out => 3
 //
 function sum(){
   console.log(arguments);
+// Arguments(4) [1, 2, 3, 6, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+// 0: 1
+// 1: 2
+// 2: 3
+// 3: 6
+// callee: ƒ sum()
+//length: 4
+
   let sum = 0;
   //point
   //for of work on array and map(dont work on object)
