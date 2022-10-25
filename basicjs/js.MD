@@ -79,6 +79,7 @@ const price2 = 6;
 let total = price1 + price2;
 
 ```
+#### problems with var
 ```jsx
 function start(){
   for(let i=0;i<5;i++){
@@ -99,10 +100,14 @@ function start(){
   console.log(i);
 }
 start();
+// var => function scope
+// let,const => block scope
 
-//
-var color1 = "red"
-//
+
+// def variable
+///window.color => true becuse variable maybe reasined not a good way
+var color = "red"
+
 // window.color1
 let color1 = "red"
 ```
