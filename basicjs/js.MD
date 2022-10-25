@@ -1880,7 +1880,7 @@ let employee = {
 ```jsx
 
 //abstraction(Hide some methods and properties from outside view)
-//function Circle(radius){
+function Circle(radius){
   this.radius = radius;
   this.draw = function(){
     console.log('draw');
