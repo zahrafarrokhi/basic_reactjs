@@ -1932,25 +1932,31 @@ Circle.computeOptimumLocation(2)
 //dirived class,sub class,child class
 //Prototype(shape is prototype circle)
 let x = {}
-{}
+console.log(x);
+>{}
 //[[Prototype]]: Object
 //[[Prototype]]: Object
-constructor: ƒ Object()
-hasOwnProperty: ƒ hasOwnProperty()
-isPrototypeOf: ƒ isPrototypeOf()
-propertyIsEnumerable: ƒ propertyIsEnumerable()
-toLocaleString: ƒ toLocaleString()
-toString: ƒ toString()
-valueOf: ƒ valueOf()
-__defineGetter__: ƒ __defineGetter__()
-__defineSetter__: ƒ __defineSetter__()
-__lookupGetter__: ƒ __lookupGetter__()
-__lookupSetter__: ƒ __lookupSetter__()
-__proto__: (...)
-get __proto__: ƒ __proto__()
-set __proto__: ƒ __proto__()
+//constructor: ƒ Object()
+//hasOwnProperty: ƒ hasOwnProperty()
+//isPrototypeOf: ƒ isPrototypeOf()
+//propertyIsEnumerable: ƒ propertyIsEnumerable()
+//toLocaleString: ƒ toLocaleString()
+//toString: ƒ toString()
+//valueOf: ƒ valueOf()
+//__defineGetter__: ƒ __defineGetter__()
+//__defineSetter__: ƒ __defineSetter__()
+//__lookupGetter__: ƒ __lookupGetter__()
+//__lookupSetter__: ƒ __lookupSetter__()
+//__proto__: (...)
+//get __proto__: ƒ __proto__()
+//set __proto__: ƒ __proto__()
+//
 x.toString();
-
+Object.getPrototypeOf(x)
+let y = {}
+console.log(y)
+Object.getPrototypeOf(x) === Object.getPrototypeOf(y)
+true
 ```
 ### prototype
 ```jsx
