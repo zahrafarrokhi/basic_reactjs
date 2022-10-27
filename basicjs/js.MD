@@ -2080,3 +2080,31 @@ draw
 
 
 ```
+#### Instance member & Prototype members
+```jsx
+function Circle(radius){
+   //Instance member
+   this.radius = radius;
+   
+   }
+     
+ 
+//Prototype members
+Circle.prototype.draw = function (){
+  console.log('draw');
+  }
+
+
+Circle.prototype.toString = function (){
+ return 'circle with raduis:' + this.radius
+  }
+  
+
+ 
+ const c1 = new Circle(1); 
+ const c2 = new Circle(2); 
+ console.log( c1.toString())
+ //out
+'circle with raduis:1'
+
+```
