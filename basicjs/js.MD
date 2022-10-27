@@ -2008,3 +2008,69 @@ Object.defineProperty(person,'name',{
  console.log(person.name);
 //out => zahra
 ```
+```jsx
+function Circle(radius){
+   this.radius = radius;}
+   
+   
+   const circle = new Circle(1);
+   
+   ## constructor function create new object
+  Circle.prototype
+  
+  
+  let obj = {};
+  obj.__proto__
+  Object.prototype
+  
+  let array = []
+  array.__proto__
+
+```
+
+```jsx
+function Circle(radius){
+   this.radius = radius;
+   this.draw = function (){
+   console.log('draw');
+   }
+   
+   }
+   
+   
+const c1 = new Circle(1);
+   
+
+Circle.prototype === c1.__proto__
+// out => true
+
+Circle.prototype
+//out => {constructor: ƒ}
+```
+#### define func on prototype
+```jsx
+function Circle(radius){
+   this.radius = radius;
+   
+   }
+     
+const c1 = new Circle(1);  
+const c2 = new Circle(2); 
+
+//out 
+console.log(c1)
+Circle {radius: 1}
+radius:1
+[[Prototype]]:Object
+  draw: f() // on prototype
+  
+// def func
+Circle.prototype.draw = function (){
+  console.log('draw');
+  }
+//out
+c1.draw
+ƒ (){
+  console.log('draw');
+  }
+```
