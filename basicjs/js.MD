@@ -1989,3 +1989,22 @@ Array.prototype
 //[constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, find: ƒ, …]
 
 ```
+
+```jsx
+let person = {name:"zahra"};
+for (let key in person){
+  console.log(key)}
+//out => name
+
+console.log(Object.keys(person))
+//out => ['name']
+```
+#### defineProperty
+```jsx
+Object.defineProperty(person,'name',{
+     writable:false});
+     
+ person.name = "ali";
+ console.log(person.name);
+//out => zahra
+```
