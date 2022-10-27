@@ -2108,3 +2108,34 @@ Circle.prototype.toString = function (){
 'circle with raduis:1'
 
 ```
+### def move()
+```jsx
+function Circle(radius){
+   //Instance members
+   this.radius = radius;
+   this.move = function (){
+       this.draw();
+       console.log('move')
+   
+}
+}
+     
+ 
+//Prototype members
+Circle.prototype.draw = function (){
+  console.log('draw');
+  }
+
+
+Circle.prototype.toString = function (){
+ return 'circle with raduis:' + this.radius
+  }
+  
+
+ 
+const c1 = new Circle(1); 
+const c2 = new Circle(2); 
+console.log( c1.move())
+
+
+```
