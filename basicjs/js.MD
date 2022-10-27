@@ -2068,9 +2068,15 @@ radius:1
 Circle.prototype.draw = function (){
   console.log('draw');
   }
-//out
+
 c1.draw
+//out
 ƒ (){
   console.log('draw');
   }
+c1.draw()
+//out 
+draw
+
+
 ```
