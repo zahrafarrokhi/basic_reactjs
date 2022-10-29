@@ -2025,6 +2025,19 @@ function Circle(radius){
   
   let array = []
   array.__proto__
+  Array.prototype
+  
+  
+  function Circle(radius){
+   this.radius = radius;
+   }
+   
+const circle = new Circle(1);
+
+circle.__proto__
+// out => {constructor: ƒ}
+Circle.prototype
+//out => {constructor: ƒ}
 
 ```
 
