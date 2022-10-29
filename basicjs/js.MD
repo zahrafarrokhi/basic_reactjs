@@ -2152,7 +2152,7 @@ console.log( c1.move())
 
 
 ```
-#### return instance members
+#### return instance members & all members
 
 ```jsx
 function Circle(radius){
@@ -2171,4 +2171,7 @@ console.log(Object.keys(c1));
 //without draw
 //out => 'radius', 'move'] 
 
+// return all members(instane and prototype)
+for (let key in c1){
+console.log(key)}
 ```
