@@ -2182,3 +2182,36 @@ c1.hasOwnProperty('move')
 c1.hasOwnProperty('draw')
 //false
 ```
+### duplicate
+```jsx
+function squre(){}
+squre.prototpe.duplicate = function (){
+}
+//duplicate
+function Shape(){
+  console.log('shape');
+}
+
+
+Shape.prototype.duplicate = function(){
+console.log("duplicate")}
+
+
+
+function Circle(radius){
+//instance members
+   this.radius = radius;
+  
+   }
+ //prototype members  
+Circle.prototype.draw = function(){
+console.log('draw');}
+
+
+
+const s = new Shape();
+const c = new Circle();
+
+
+
+```
