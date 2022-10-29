@@ -2174,4 +2174,11 @@ console.log(Object.keys(c1));
 // return all members(instane and prototype)
 for (let key in c1){
 console.log(key)}
+//
+c1.hasOwnProperty('radius')
+// true
+c1.hasOwnProperty('move')
+//true
+c1.hasOwnProperty('draw')
+//false
 ```
