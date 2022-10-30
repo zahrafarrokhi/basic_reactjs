@@ -2238,6 +2238,7 @@ console.log('draw');}
 const s = new Shape();
 const c = new Circle();
 
-console.log(c.duplictae());
+console.log(c.duplicate())
+// out => duplicate
 
 ```
