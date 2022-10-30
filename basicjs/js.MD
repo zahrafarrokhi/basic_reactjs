@@ -2184,20 +2184,8 @@ c1.hasOwnProperty('draw')
 ```
 ### duplicate
 ```jsx
-function squre(){}
-squre.prototpe.duplicate = function (){
-}
-//duplicate
-function Shape(){
-  console.log('shape');
-}
 
-
-Shape.prototype.duplicate = function(){
-console.log("duplicate")}
-
-
-
+// 1.
 function Circle(radius){
 //instance members
    this.radius = radius;
@@ -2207,11 +2195,49 @@ function Circle(radius){
 Circle.prototype.draw = function(){
 console.log('draw');}
 
+Circle.prototype.draw = function(){
+console.log('duplicate');}
+function squre(){}
+squre.prototpe.duplicate = function (){
+}
 
+const c = new Circle()
+console.log(c)
+//out =>
+// Circle {radius: undefined}
+// radius:undefined
+// draw : f ()
+// duplicate : f ()
+
+// 2. duplicate
+function Squre(){}
+Squre.prototype.duplicate = function(){
+    console.log("Squre")}
+
+// 3. duplicate with inheritence
+// Shape
+function Shape(){
+  }
+
+Shape.prototype.duplicate = function(){
+  console.log("duplicate")}
+
+// Circle
+function Circle(radius){
+   this.radius = radius;
+  
+   }
+   
+Circle.prototype = Object.create(shape.prototype);
+ 
+Circle.prototype.draw = function(){
+console.log('draw');}
+
+// instance
 
 const s = new Shape();
 const c = new Circle();
 
-
+console.log(c.duplictae());
 
 ```
