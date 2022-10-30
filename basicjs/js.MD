@@ -2228,7 +2228,7 @@ function Circle(radius){
   
    }
    
-Circle.prototype = Object.create(shape.prototype);
+Circle.prototype = Object.create(Shape.prototype);
  
 Circle.prototype.draw = function(){
 console.log('draw');}
