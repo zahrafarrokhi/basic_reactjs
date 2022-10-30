@@ -2245,4 +2245,36 @@ console.log(c.duplicate())
 //create new oobject
 console.log(new Circle.prototype.constructor(2))
 // out => Circle {radius: 2}
+
+// 4. define color
+// changed
+function Shape(color){
+   this.color = color ;
+  }
+
+Shape.prototype.duplicate = function(){
+  console.log("duplicate")}
+
+// Circle
+//changed
+function Circle(radius,color){
+//changed
+   Shape.call(this,color)
+   this.radius = radius;
+  
+   }
+   
+Circle.prototype = Object.create(Shape.prototype);
+// rest constructor
+Circle.prototype.constructor = Circle;
+ 
+Circle.prototype.draw = function(){
+console.log('draw');}
+
+// instance
+
+const s = new Shape();
+const c = new Circle();
+c
+//out => Circle {color: undefined, radius: undefined}
 ```
