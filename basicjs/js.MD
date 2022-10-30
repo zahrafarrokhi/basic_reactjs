@@ -2229,6 +2229,8 @@ function Circle(radius){
    }
    
 Circle.prototype = Object.create(Shape.prototype);
+// rest constructor
+Circle.prototype.constructor = Circle;
  
 Circle.prototype.draw = function(){
 console.log('draw');}
@@ -2240,5 +2242,7 @@ const c = new Circle();
 
 console.log(c.duplicate())
 // out => duplicate
-
+//create new oobject
+console.log(new Circle.prototype.constructor(2))
+// out => Circle {radius: 2}
 ```
