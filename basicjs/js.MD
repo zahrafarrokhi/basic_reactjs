@@ -2375,4 +2375,28 @@ c
 // out => Circle {}
 c.duplicate
 // out => {console.log("duplicate")}
+
+// overrite circle duplicate
+// Shape
+function Shape(){}   
+Shape.prototype.duplicate = function(){console.log("duplicate")}
+  
+// Circle
+function Circle(){}
+// extend  
+function extend(child ,Parent){
+  child.prototype = Object.create(Parent.prototype);
+  child.prototype.constructor = child;
+  }
+ 
+extend(Circle,Shape);
+// Circle after extend 
+Circle.prototype.duplicate = function(){console.log("duplicate Circle")}
+// instance
+const s = new Shape();
+const c = new Circle();
+c
+// out => Circle {}
+c.duplicate
+// out => {{console.log("duplicate Circle")}
 ```
