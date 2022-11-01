@@ -2557,3 +2557,28 @@ Circle {radius: 2, move: ƒ}
 typeof(circle) => 'object'
 typeof(Circle) => 'function'
 ```
+
+### hoisting
+We do not have hoisting in classes
+```jsx
+// function
+sayHello () => true
+// function Declartion
+function sayHello (){
+    console.log("hello")}
+
+sayGoodbye() =>false 
+// function Expression
+const sayGoodbye = function (){console.log("goodbye")}
+
+// Class
+const c = new Circle() -> f
+
+// class Declartion
+class Circle{}
+    
+ const s = new Square() -> f
+// class Expression
+const Square = class{}
+
+```
