@@ -2560,25 +2560,81 @@ typeof(Circle) => 'function'
 
 ### hoisting
 We do not have hoisting in classes
+#### function
 ```jsx
-// function
+// 1.function Declartion
 sayHello () => true
-// function Declartion
-function sayHello (){
-    console.log("hello")}
-
+/
+function sayHello (){  console.log("hello")}
+  
+// 2.function Expression
 sayGoodbye() =>false 
-// function Expression
 const sayGoodbye = function (){console.log("goodbye")}
-
-// Class
+```
+####  Class
+```jsx
+// 1.class Declartion
 const c = new Circle() -> f
-
-// class Declartion
 class Circle{}
-    
- const s = new Square() -> f
-// class Expression
+
+// 2.class Expression
+const s = new Square() -> f
 const Square = class{}
 
+```
+### instance method
+```jsx
+class Circle {
+  constructor(radius){
+     this.radius = radius;
+     }  
+  //instance method
+ draw(){console.log('draw');}
+}
+         
+// instance       
+const circle = new Circle(1);
+```
+
+### static method
+
+```jsx
+// 1.
+class Circle {
+  constructor(radius){
+     this.radius = radius;
+     }  
+     
+ // static method
+ static parse(str){
+   console.log('parse');
+ }
+}
+
+// You do not need to make a instance         
+Circle.parse()
+// out => parse
+
+//2.
+class Circle {
+  constructor(radius){
+     this.radius = radius;
+     }  
+     
+  //instance method
+ draw(){}
+ 
+ // static method
+ static parse(str){
+   const radius = JSON.parse(str).radius;
+   return new Circle(radius)
+ }
+}
+
+// without new
+const circle = Circle.parse('{"radius":1}')
+circle
+// out
+Circle {radius: 1}
+circle
 ```
