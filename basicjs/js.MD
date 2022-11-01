@@ -2497,4 +2497,59 @@ const c = new Circle()
 // duplicate Circle
 // duplicate Square
 ```
-چند ریختی
+### Class (ECMAScript6)
+[Es6](https://virgool.io/@atrin.abbasian7/%D8%A7%DA%A9%D9%85%D8%A7-%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA-es6-%DA%86%DB%8C%D8%B3%D8%AA-%D8%A8%D9%87-%D9%87%D9%85%D8%B1%D8%A7%D9%87-%DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF-%D9%87%D8%A7%DB%8C-%D8%A2%D9%86-nefpnfgd35le)
+
+#### function (old)
+```jsx
+// Circle
+function Circle(radius){
+  this.radius = radius;
+  this.draw = function (){
+    console.log('draw');}
+    }
+circle = new Circle(10)
+// out
+// Circle {radius: 10, draw: ƒ}
+circle.radius
+// out => 
+circle.draw()
+// out => draw
+```
+#### Class (Es6)
+```jsx
+class Circle {
+  constructor(radius){
+     this.radius = radius;
+     }          
+ draw(){console.log('draw');}
+}
+         
+// instance       
+const circle = new Circle(1);
+circle
+// out 
+Circle {radius: 1}
+radius: 1
+[[Prototype]]: Object
+constructor: class Circle
+draw: ƒ draw()
+
+```
+#### constructor with function
+
+```jsx
+class Circle {
+  constructor(radius){
+     this.radius = radius;
+     this.move = function {console.log('move')}
+     }          
+ draw(){console.log('draw');}
+}
+         
+// instance       
+const circle = new Circle(2);
+circle
+// out 
+Circle {radius: 2, move: ƒ}
+```
