@@ -2638,3 +2638,65 @@ circle
 Circle {radius: 1}
 circle
 ```
+### Change in Class
+#### 1.method call
+```jsx
+// 1.method call
+const Circle = function(){
+this.draw = function (){
+console.log(this)};}
+
+
+const c = new Circle()
+//method call
+c.draw()
+
+```
+
+#### 2.function call => global object
+```jsx
+// function call
+const Circle = function(){
+this.draw = function (){console.log(this)};
+}
+// instance
+const c = new Circle();
+// adress draw in draw
+const draw = c.draw
+// function call => global object
+draw();
+//out = > Window {0: global, window: Window, self: Window, document: document, name: '', location: Location, …}
+```
+#### 'use strict'
+```jsx
+'use strict'
+const Circle = function(){
+this.draw = function (){
+console.log(this)};}
+// instance
+const c = new Circle();
+const draw = c.draw;
+draw();
+// out => undefined
+```
+#### this like method call with bind
+```jsx
+const Circle = function(){
+this.draw = function (){
+console.log(this)};}
+
+const c = new Circle();
+const draw = c.draw.bind(c);
+draw();
+// out => Circle {draw: ƒ}
+```
+#### class (es6)
+```jsx
+class Circle{
+draw(){console.log('draw')};}
+//instance
+const c = new Circle();
+const draw = c.draw;
+draw();
+// out => undefined
+```
