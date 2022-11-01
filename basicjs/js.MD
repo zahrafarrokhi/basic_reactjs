@@ -2552,4 +2552,8 @@ const circle = new Circle(2);
 circle
 // out 
 Circle {radius: 2, move: ƒ}
+
+// typeof class & instance
+typeof(circle) => 'object'
+typeof(Circle) => 'function'
 ```
