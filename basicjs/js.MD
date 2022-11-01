@@ -2315,7 +2315,7 @@ sq
 // out => Square {size: 10}
 sq.duplicate
 // out =>  {console.log("duplicate")}
-5. def size(with extend) 
+5. def size(with extend) => intermidate function inheritance
 function Shape(color){
    this.color = color ;
   }
