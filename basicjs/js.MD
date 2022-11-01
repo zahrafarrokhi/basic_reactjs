@@ -2456,3 +2456,45 @@ c.duplicate()
 //duplicate
 // duplicate Circle
 ```
+### polymorphism
+```jsx
+function Shape(){}   
+Shape.prototype.duplicate = function(){console.log("duplicate")}
+  
+// Circle
+function Circle(){}
+// extend  
+function extend(child ,Parent){
+  child.prototype = Object.create(Parent.prototype);
+  child.prototype.constructor = child;
+  }
+ 
+extend(Circle,Shape);
+// Circle after extend 
+Circle.prototype.duplicate = function(){
+
+console.log("duplicate Circle")}
+
+// Square
+function Square(){}
+extend (Square ,Shape)
+Square.prototype.duplicate = function(){
+
+console.log("duplicate Square")}
+
+const shapes = [ new Circle(),
+                 new Square()
+                 ]
+                 
+for(let shape of shapes)
+   shape.duplicate()
+
+// instance
+
+const c = new Circle()
+
+// out=>
+// duplicate Circle
+// duplicate Square
+```
+چند ریختی
