@@ -2376,7 +2376,7 @@ c
 c.duplicate
 // out => {console.log("duplicate")}
 ```
-### overrite circle duplicate
+### override circle duplicate
 ```jsx
 // 1.
 // Shape
