@@ -2378,6 +2378,7 @@ c.duplicate
 ```
 ### overrite circle duplicate
 ```jsx
+// 1.
 // Shape
 function Shape(){}   
 Shape.prototype.duplicate = function(){console.log("duplicate")}
@@ -2401,6 +2402,7 @@ c
 c.duplicate
 // out => {{console.log("duplicate Circle")}
 
+//2.
 // access parent
 // Shape
 function Shape(){}   
@@ -2418,6 +2420,33 @@ extend(Circle,Shape);
 // Circle after extend 
 Circle.prototype.duplicate = function(){
 Shape.prototype.duplicate()
+console.log("duplicate Circle")}
+// instance
+const s = new Shape();
+const c = new Circle();
+c.duplicate()
+// out => 
+//duplicate
+// duplicate Circle
+
+//3.
+// access parent with call(this)
+// Shape
+function Shape(){}   
+Shape.prototype.duplicate = function(){console.log("duplicate")}
+  
+// Circle
+function Circle(){}
+// extend  
+function extend(child ,Parent){
+  child.prototype = Object.create(Parent.prototype);
+  child.prototype.constructor = child;
+  }
+ 
+extend(Circle,Shape);
+// Circle after extend 
+Circle.prototype.duplicate = function(){
+Shape.prototype.duplicate.call(this)
 console.log("duplicate Circle")}
 // instance
 const s = new Shape();
