@@ -2700,7 +2700,7 @@ const draw = c.draw;
 draw();
 // out => undefined
 ```
-#### private
+#### private with Symbol()
 ##### property private
 ```jsx
 // use Symbol()
@@ -2750,3 +2750,24 @@ const c = new Circle(1);
 c
 // out => Circle {Symbol(): 1}
 ```
+
+#### private with WeakMap()
+```jsx
+//dict
+// key => object
+// value => every thing
+
+const _radius = new WeakMap();
+
+class Circle{
+   constructor(radius){
+        _radius.set(this,radius)
+      }
+            
+      }
+      
+const c = new Circle(1)
+c
+// out => Circle {}
+```
+
