@@ -2816,4 +2816,54 @@ c.draw()
 // move Circle {}
 // draw
 ```
+#### geter & setter
+```jsx
+// 1.
+const _radius = new WeakMap();
+class Circle{
+   constructor(radius){
+        _radius.set(this,radius)
+        
+      }
+  get getRadius(){
+     return _radius.get(this)
+   }
+  set radius(value){
+     return _radius.get(this,value)
+  }  
+   
+ }
+const c = new Circle(1);
+
+// out 
+//set
+c.raduis = 2
+// get
+c.raduis
+
+// 2. with throw new Error
+const _radius = new WeakMap();
+class Circle{
+   constructor(radius){
+        _radius.set(this,radius)
+        
+      }
+  get getRadius(){
+     return _radius.get(this)
+   }
+  set radius(value){
+     if (value<=0)throw new Error('invalid radius')
+     
+     return _radius.get(this,value)
+  }  
+   
+ }
+const c = new Circle(1);
+
+
+c.radius = -1
+// out => VM1637:13 Uncaught Error: invalid radius
+    at Circle.set radius [as radius] (<anonymous>:13:25)
+    at <anonymous>:1:10
+```
 
