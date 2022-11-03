@@ -2922,4 +2922,36 @@ const c = new Circle('red',2);
 c
 //out => Circle {color: 'red', radius: 2}
 ```
+#### override
+```jsx
+// Shape
+class Shape {   
+   move(){console.log('move')}
+ }
 
+// Circle
+class Circle extends Shape{  
+  move(){console.log('circle move')}
+ }
+const c = new Circle();
+c.move()
+// out => circle move
+
+// 2.Call move parent in child
+// Shape
+class Shape {   
+   move(){console.log('move')}
+ }
+
+// Circle
+class Circle extends Shape{  
+  move(){
+  super.move();
+  console.log('circle move')}
+ }
+const c = new Circle();
+c.move()
+// out => 
+// move
+// circle move
+```
