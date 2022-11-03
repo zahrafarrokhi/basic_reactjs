@@ -2700,3 +2700,53 @@ const draw = c.draw;
 draw();
 // out => undefined
 ```
+#### private
+##### property private
+```jsx
+// use Symbol()
+const _radius = Symbol();
+class Circle{
+   constructor(radius){
+      this._radius = radius ;
+      }
+      
+      }
+      
+const c = new Circle(1);
+  
+Symbol() == Symbol()
+// out=> false
+```
+##### Cute tip
+```jsx
+const _radius = Symbol();
+class Circle{
+   constructor(radius){
+      this[_radius] = radius ;
+      }
+      
+}
+      
+const c = new Circle(1);
+const key = Object.getOwnPropertySymbols(c)[0];
+console.log(key)
+// out => Symbol()
+console.log(c[key])
+// out=> 1
+```
+##### func private
+```jsx
+const _radius = Symbol();
+const _draw = Symbol();
+class Circle{
+   constructor(radius){
+      this[_radius] = radius ;
+      }
+      [_draw](){}
+      
+      }
+      
+const c = new Circle(1);
+c
+// out => Circle {Symbol(): 1}
+```
