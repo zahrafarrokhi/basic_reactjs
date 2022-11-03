@@ -2866,4 +2866,60 @@ c.radius = -1
     at Circle.set radius [as radius] (<anonymous>:13:25)
     at <anonymous>:1:10
 ```
+#### inheritance
+```jsx
+// 1.extends
+class Shape {
+   move(){console.log('move')}
+   
+}
+
+
+class Circle extends Shape{
+  draw(){console.log('draw')}
+ }
+const c = new Circle(1);
+c.move()
+// out => move
+// 2.constructor in child with super
+class Shape {
+   constructor(color){
+     this.color= color;
+   }
+   move(){console.log('move')}
+   
+}
+
+
+class Circle extends Shape{
+  constructor(color){
+  super(color);
+  }
+  
+  draw(){console.log('draw')}
+ }
+const c = new Circle('red');
+
+// 3.
+class Shape {
+   constructor(color){
+     this.color= color;
+   }
+   move(){console.log('move')}
+   
+}
+
+
+class Circle extends Shape{
+  constructor(color,radius){
+  super(color);
+   this.radius= radius;
+  }
+  
+  draw(){console.log('draw')}
+ }
+const c = new Circle('red',2);
+c
+//out => Circle {color: 'red', radius: 2}
+```
 
