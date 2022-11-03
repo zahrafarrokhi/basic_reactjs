@@ -2955,3 +2955,12 @@ c.move()
 // move
 // circle move
 ```
+#### module
+
+```jsx
+// module format
+// AMD for browser
+// COMMONJS for  node
+// UMD for browser & node
+// Es6 Modules for browser
+```
