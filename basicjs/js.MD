@@ -2770,4 +2770,50 @@ const c = new Circle(1)
 c
 // out => Circle {}
 ```
+##### private func
+
+```jsx
+//1.
+const _radius = new WeakMap();
+const _move= new WeakMap();
+
+class Circle{
+   constructor(radius){
+        _radius.set(this,radius)
+        _move.set(this,function(){console.log('move',this);})
+      }
+        
+    draw(){
+    _move.get(this)();
+    console.log('draw')   
+      }
+ }
+const c = new Circle(1)
+c.draw()
+out => 
+// move undefined => for _move in constructor ,this is undefined
+// draw => for draw method
+ 
+ 
+ // 2. solution for this
+ const _radius = new WeakMap();
+const _move= new WeakMap();
+
+class Circle{
+   constructor(radius){
+        _radius.set(this,radius)
+        _move.set(this,()=> {console.log('move',this);})
+      }
+        
+    draw(){
+    _move.get(this)();
+    console.log('draw')   
+      }
+ }
+const c = new Circle(1);
+c.draw()
+// out
+// move Circle {}
+// draw
+```
 
