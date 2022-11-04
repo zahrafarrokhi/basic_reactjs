@@ -3041,8 +3041,9 @@ export default class Circle{}
 // script.js
 import Circle from './circle.js'
 ```
-### babel ,webpack
+### babel
 ```jsx
+// 1.
 // transpiler => translater & compiler es6 to es5 like babel
 // boundler  => js to  one file(remove comment,...) =>webpack
 // install node for have npm => text with node -v
@@ -3080,6 +3081,29 @@ const x = 1;
  "use strict";
 
 var x = 1;
+//example 2.
+//index.js
+let numbers = [1, 2, 3, 4];
+numbers.forEach((number)=>console.log(number))
+//termminal=> npm run babel
+//build/index.js
+"use strict";
 
- 
+var numbers = [1, 2, 3, 4];
+numbers.forEach(function (number) {
+  return console.log(number);
+});
+
+//example 3.
+//index.js
+class Circle { }
+//terminal=> npm run babel
+//build/index.js
+ "use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Circle = function Circle() {
+  _classCallCheck(this, Circle);
+
 ```
