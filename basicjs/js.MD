@@ -2963,4 +2963,39 @@ c.move()
 // COMMONJS for  node
 // UMD for browser & node
 // Es6 Modules for browser
+
+//1. script.js
+const _radius = new WeakMap();
+class Circle{
+   constructor(radius){
+        _radius.set(this,radius);
+        
+      }
+   draw(){
+   console.log('circle with radius:'+_radius.get(this))}
+   
+ }
+const c = new Circle(1);
+c.draw();
+// terminal => node -v
+// out => node script.js
+
+//2.
+//circle.js
+const _radius = new WeakMap();
+class Circle{
+   constructor(radius){
+        _radius.set(this,radius);
+        
+      }
+   draw(){
+   console.log('circle with radius:'+_radius.get(this))}
+   
+ }
+ module.exports = Circle;
+// scrpit.js
+const Circle = require('./circle')
+const c = new Circle(1);
+c.draw();
+// out => terminal => node script.js
 ```
