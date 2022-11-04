@@ -3041,3 +3041,31 @@ export default class Circle{}
 // script.js
 import Circle from './circle.js'
 ```
+### babel ,webpack
+```jsx
+// transpiler => translater & compiler es6 to es5 like babel
+// boundler  => js to  one file(remove comment,...) =>webpack
+// install node for have npm => text with node -v
+// 1. 
+create folder babel
+// 2. terminal (add package.json 
+npm init -y
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "circle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+//3. 
+npm i babel-cli babel-core babel-preset-env --save-env
+// babel-cli => for excute from command prompt
+// babel-core => babel
+// babel-preset-env => for new plugin
+// --save-env => for development
+```
