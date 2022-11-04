@@ -3158,3 +3158,54 @@ module: {
 }
 5. write webpack on terminal
 ```
+### asynchronism
+```jsx
+//1.callback
+//2.promiss
+//3.async await
+
+```
+### callback
+```jsx
+//1.
+function print(){
+  console.log('b')}
+  console.log('a');
+  print()
+  console.log('c');
+  // out =>
+ // a
+ // b
+ // c
+//2.setTimeout
+  function print(){
+  setTimeout(()=>{ console.log('b')},1000)
+ }
+  console.log('a');
+  print()
+  console.log('c');
+ // out 
+  // a
+  // c
+  // b after 1 s
+  //3.
+    function ball1(){
+  setTimeout(()=>{ console.log('this ball one reached the end of hill')},2000)
+ }
+  
+  
+  function ball2(){
+  setTimeout(()=>{ console.log('this ball two reached the end of hill')},1000)
+ }
+  
+  function ball3(){
+  setTimeout(()=>{ console.log('this ball three reached the end of hill')},3000)
+ }
+  ball1()
+  ball2()
+  ball3()
+// out => two ,one ,three
+// this ball two reached the end of hill
+// this ball one reached the end of hill
+//this ball three reached the end of hil
+```
