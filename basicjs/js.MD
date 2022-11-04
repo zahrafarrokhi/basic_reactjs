@@ -2999,3 +2999,40 @@ const c = new Circle(1);
 c.draw();
 // out => terminal => node script.js
 ```
+#### module Es6
+```jsx
+// indtall live server extension on vscode
+//index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <!-- type => module -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
+
+// circle.js
+const _radius = new WeakMap();
+export class Circle{
+   constructor(radius){
+        _radius.set(this,radius);
+        
+      }
+   draw(){
+   console.log('circle with radius:'+_radius.get(this))}
+   
+ }
+// script.js
+import  {Circle} from './circle.js'
+const c = new Circle(1);
+c.draw();
+
+// right click on index.html & inspect cosole.log => circle with radius:1
+
+```
