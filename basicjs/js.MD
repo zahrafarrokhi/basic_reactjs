@@ -3046,9 +3046,9 @@ import Circle from './circle.js'
 // transpiler => translater & compiler es6 to es5 like babel
 // boundler  => js to  one file(remove comment,...) =>webpack
 // install node for have npm => text with node -v
-// 1. 
+ 1. 
 create folder babel
-// 2. terminal (add package.json 
+ 2. terminal (add package.json to folder)
 npm init -y
 {
   "name": "js",
@@ -3062,10 +3062,24 @@ npm init -y
   "author": "",
   "license": "ISC"
 }
-//3. 
+3. on terminal
 npm i babel-cli babel-core babel-preset-env --save-env
 // babel-cli => for excute from command prompt
 // babel-core => babel
 // babel-preset-env => for new plugin
 // --save-env => for development
+ 4. index.js
+const x = 1;
+5. package.json (key:value,in index.js ,out=>build /index.js
+"scripts": {
+    "babel":"babel --presets env index.js -o build/index.js"
+  },
+ 6.create bulid folder
+ 7. npm run babel
+ // out=> build/index.js
+ "use strict";
+
+var x = 1;
+
+ 
 ```
