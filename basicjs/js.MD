@@ -3107,3 +3107,54 @@ var Circle = function Circle() {
   _classCallCheck(this, Circle);
 
 ```
+### webpack
+```jsx
+// npm i -g webpack webpack-cli
+1. create src folder( circle.js &  index.js
+// circle.js
+const _radius = new WeakMap();
+export class Circle{
+   constructor(radius){
+        _radius.set(this,radius);
+        
+      }
+   draw(){
+   console.log('circle with radius:'+_radius.get(this))}
+   
+ }
+ // index.js
+ import  {Circle} from './circle.js'
+const c = new Circle(1);
+c.draw();
+ 2. index.html
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="src/index.js"></script>
+</body>
+</html>
+3. search webpack with babel
+npm install -D babel-loader @babel/core @babel/preset-env webpack
+4.create webpack.config.js file
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    }
+  ]
+}
+5. write webpack on terminal
+```
