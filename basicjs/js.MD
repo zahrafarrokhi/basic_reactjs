@@ -3035,4 +3035,9 @@ c.draw();
 
 // right click on index.html & inspect cosole.log => circle with radius:1
 
+// point
+//circle.js
+export default class Circle{}
+// script.js
+import Circle from './circle.js'
 ```
