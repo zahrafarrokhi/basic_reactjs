@@ -3208,4 +3208,39 @@ function print(){
 // this ball two reached the end of hill
 // this ball one reached the end of hill
 //this ball three reached the end of hil
+// ttal time => 3s
+// use Callback
+
+<!--   function ball1(callback){
+  setTimeout(()=>{ console.log('this ball one reached the end of hill');
+  //callback
+  callback();  
+  }
+   ,2000)
+ } -->
+ //
+  function ball1(ball2){
+  setTimeout(()=>{ console.log('this ball one reached the end of hill');
+   ball2(ball3);
+  }
+ 
+  ,2000)
+ }
+  function ball2(ball3){
+  setTimeout(()=>{ console.log('this ball two reached the end of hill');
+  ball3();
+  }
+  
+  ,1000)
+ }
+  
+  function ball3(){
+  setTimeout(()=>{ console.log('this ball three reached the end of hill')},3000)
+ }
+  ball1(ball2)
+  // out =>
+  // this ball one reached the end of hill ,after 2 s
+  // this ball two reached the end of hill , after 1 s
+  // this ball three reached the end of hill ,afer 3 s
+  // total time => 6s 
 ```
