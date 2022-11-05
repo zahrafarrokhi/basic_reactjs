@@ -3251,7 +3251,7 @@ function print(){
        try{
        
        if (true){
-        console.log('this ball two reached the end of hill');
+        console.log('this ball one reached the end of hill');
          ball2(ball3);
        }
        else { throw new Error ("the ball one failed")}
@@ -3288,5 +3288,11 @@ function print(){
  }
   ball1(ball2)
   
+  
+  //
+// this ball one reached the end of hill
+// this ball two reached the end of hill
+// this ball three reached the end of hill
+// 6s
   
 ```
