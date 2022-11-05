@@ -3301,3 +3301,51 @@ function print(){
 // 6s
   
 ```
+
+```jsx
+function ball1(callback){
+ setTimeout(()=>{
+   callback(true);
+   },2000)
+}
+   
+function ball2(callback){
+setTimeout(()=>{
+   callback(true);
+   },1000)
+}
+  
+function ball3(callback){
+setTimeout(()=>{
+   console.log("the ball three reached the end of hill");
+   },3000)
+}
+
+ball1((res)=>{
+
+try {
+
+ if(res){
+     console.log("the ball one reached the end of hill");
+     ball2((res)=>{
+      try {  if(res){
+         console.log("the ball two reached the end of hill");
+         ball3()
+         }else{
+          throw new Error("the ball two failed");
+         }}catch(error){console.log(error);}
+       
+     
+     })
+     }else{
+           throw new Error("the ball one failed");
+           }
+
+}catch (error){console.log(error);}
+ 
+     })
+//out
+// the ball one reached the end of hill
+// the ball two reached the end of hill
+// the ball three reached the end of hill
+```
