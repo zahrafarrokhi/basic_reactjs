@@ -3136,7 +3136,7 @@ c.draw();
   <title>Document</title>
 </head>
 <body>
-  <script src="src/index.js"></script>
+  <script src="src/index.js" type="module"></script>
 </body>
 </html>
 3. search webpack with babel
@@ -3157,6 +3157,11 @@ module: {
   ]
 }
 5. write webpack on terminal
+create dist folder with main.js inside
+(()=>{"use strict";const s=new WeakMap;new class{constructor(t){s.set(this,t)}draw(){console.log("circle with radius:"+s.get(this))}}(1).draw()})();
+Point:
+If you use src="src/index.js" you don't actually use webpack output, and you load index.js and circle.js file as they are.
+If you change src="dist/main.js" you get webpack output
 ```
 ### asynchronism
 ```jsx
