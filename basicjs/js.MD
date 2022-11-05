@@ -3254,7 +3254,7 @@ function print(){
         console.log('this ball two reached the end of hill');
          ball2(ball3);
        }
-       else { throw new Error ("the ball one failed")
+       else { throw new Error ("the ball one failed")}
 
     }catch(error){
   console.log('error')
@@ -3272,7 +3272,7 @@ function print(){
         console.log('this ball two reached the end of hill');
          ball3();
        }
-       else { throw new Error ("the ball one failed")
+       else { throw new Error ("the ball one failed")}
 
     }catch(error){
   console.log('error')
