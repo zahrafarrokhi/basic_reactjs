@@ -3259,7 +3259,7 @@ function print(){
     }catch(error){
   console.log('error')
   }
- },1000),
+ },1000)
  
  }
 
@@ -3277,7 +3277,7 @@ function print(){
     }catch(error){
   console.log('error')
   }
- },1000),
+ },1000)
  
  }
  
