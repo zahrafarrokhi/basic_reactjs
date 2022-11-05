@@ -3398,3 +3398,50 @@ ball1().then((msg)=>{
 // the ball two reached the end of hill
 // the ball three reached the end of hill
 ```
+### async await
+```jsx
+// ball1
+async function ball1(){  
+  if(true){
+  return("the ball one reached the end of hill");}
+  else{
+  throw new Error("the ball one failed")}
+    
+}
+
+// ball2
+async function ball2(){  
+if(true){
+return("the ball two reached the end of hill");}
+else{
+throw new Error("the ball two failed")}
+  
+}
+// ball3
+async function ball3(){
+
+if(true){
+return("the ball three reached the end of hill");}
+else{
+throw new Error("the ball three failed")}
+
+
+}
+// console.log(ball1())
+
+async function execute (){
+   try{
+   console.log(await ball1());
+   console.log(await ball2());
+   console.log(await ball3());
+  }catch(e){
+   console.log(e);
+  }
+ } 
+execute()
+
+// out
+// the ball one reached the end of hill
+// the ball two reached the end of hill
+// the ball three reached the end of hill
+```
