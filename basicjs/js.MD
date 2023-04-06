@@ -2274,7 +2274,7 @@ console.log('draw');}
 // instance
 
 const s = new Shape();
-const c = new Circle();
+const c = new Circle(2,'red');
 c
 //out => Circle {color: undefined, radius: undefined}
 
