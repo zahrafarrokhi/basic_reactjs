@@ -2829,7 +2829,7 @@ class Circle{
      return _radius.get(this)
    }
   set radius(value){
-     return _radius.get(this,value)
+     return _radius.set(this,value)
   }  
    
  }
@@ -2854,7 +2854,7 @@ class Circle{
   set radius(value){
      if (value<=0)throw new Error('invalid radius')
      
-     return _radius.get(this,value)
+     _radius.set(this,value)
   }  
    
  }
